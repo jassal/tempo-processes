@@ -1,15 +1,14 @@
 require "rubygems"
 require "buildr"
+require "install.rb"
+
 
 # Keep this structure to allow the build system to update version numbers.
 VERSION_NUMBER = "6.3.01-SNAPSHOT"
 
-repositories.release_to[:username] ||= "release"
-repositories.release_to[:url] ||= "sftp://www.intalio.org/var/www-org/public/maven2"
-repositories.release_to[:permissions] ||= 0664
-
 desc "Workflow Processes"
 define "tempo-processes" do
+
   project.version = VERSION_NUMBER
   project.group = "org.intalio.tempo"
 
