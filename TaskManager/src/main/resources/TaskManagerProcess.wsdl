@@ -317,7 +317,7 @@
 
 		</wsdl:operation>
 		
-				<wsdl:operation name="skipTask">
+        <!-- <wsdl:operation name="skipTask">
 
 			<wsdl:input message="b4p:skipTaskRequest"
 				name="skipTaskRequest" />
@@ -325,7 +325,7 @@
 			<wsdl:output message="b4p:skipTaskResponse"
 				name="skipTaskResponse" />
 
-		</wsdl:operation>
+		</wsdl:operation> -->
 
 
 	</wsdl:portType>
@@ -446,7 +446,7 @@
 			</wsdl:output>
 
 		</wsdl:operation>
-		<wsdl:operation name="skipTask">
+		<!-- <wsdl:operation name="skipTask">
 
 			<soap:operation soapAction="skipTask" style="document" />
 
@@ -462,7 +462,7 @@
 
 			</wsdl:output>
 
-		</wsdl:operation>
+		</wsdl:operation> -->
 
 	</wsdl:binding>
 
