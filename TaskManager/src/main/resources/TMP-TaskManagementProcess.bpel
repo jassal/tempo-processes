@@ -55,6 +55,9 @@
             <tns:userProcessEndpoint></tns:userProcessEndpoint>
             <tns:userProcessNamespaceURI></tns:userProcessNamespaceURI>
             <tns:attachments></tns:attachments>
+            <tns:customMetadata>
+                <tns:customTaskMetadata></tns:customTaskMetadata>
+            </tns:customMetadata>
         </tns:metadata>
         <tns:input/>
     </tns:task>
@@ -335,6 +338,10 @@
       <bpel:copy>
         <bpel:from>if (exists($createTaskRequest.root/b4p:taskMetaData/b4p:taskState/text())) then ($createTaskRequest.root/b4p:taskMetaData/b4p:taskState/text()) else ("READY")</bpel:from>
         <bpel:to>$createTMSTaskRequest.createRequest/tns:task/tns:metadata/tns:taskState</bpel:to>
+      </bpel:copy>
+      <bpel:copy ignoreUninitializedFromVariable="yes" ignoreMissingFromData="yes">
+        <bpel:from>$createTaskRequest.root/b4p:taskMetaData/b4p:customMetaData</bpel:from>
+        <bpel:to>$createTMSTaskRequest.createRequest/tns:task/tns:metadata/tns:customMetadata/tns:customTaskMetadata</bpel:to>
       </bpel:copy>
     </bpel:assign>
     <bpel:invoke partnerLink="taskManagementProcessAndTaskManagementSystemForPortTaskManagementServicesSOAPPlkVar" portType="tns:TaskManagementServices" operation="create" inputVariable="createTMSTaskRequest" outputVariable="createTMSTaskResponse" bpmn:label="Create Task in Database" name="Create_Task_in_Database-1" bpmn:id="_jiUMsKgTEdylDI4yblkdQQ"></bpel:invoke>
