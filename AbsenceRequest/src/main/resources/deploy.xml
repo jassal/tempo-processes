@@ -1,17 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<dd:deploy xmlns:dd="http://ode.fivesight.com/schemas/2006/06/27/dd">
-  <dd:process xmlns:abs="http://www.example.com/AbsenceRequest/AbsenceRequest" name="abs:AbsenceRequest">
-    <dd:provide partnerLink="AbsenceRequest_And_Employee_PLink">
-      <dd:service xmlns:emp="http://www.example.com/AbsenceRequest/Employee_To_AbsenceRequest" name="emp:Employee_To_AbsenceRequest_Service" port="Employee_To_AbsenceRequest_Http"/>
-    </dd:provide>
-    <dd:provide partnerLink="AbsenceRequest_And_Manager_PLink">
-      <dd:service xmlns:man="http://www.example.com/AbsenceRequest/Manager_To_AbsenceRequest" name="man:Manager_To_AbsenceRequest_Service" port="Manager_To_AbsenceRequest_Http"/>
-    </dd:provide>
-    <dd:invoke partnerLink="AbsenceRequest_And_Employee_PLink">
-      <dd:service xmlns:abs1="http://www.example.com/AbsenceRequest/AbsenceRequest_To_Employee" name="abs1:AbsenceRequest_To_Employee_Service" port="AbsenceRequest_To_Employee_Http"/>
-    </dd:invoke>
-    <dd:invoke partnerLink="AbsenceRequest_And_Manager_PLink">
-      <dd:service xmlns:abs1="http://www.example.com/AbsenceRequest/AbsenceRequest_To_Manager" name="abs1:AbsenceRequest_To_Manager_Service" port="AbsenceRequest_To_Manager_Http"/>
-    </dd:invoke>
-  </dd:process>
-</dd:deploy>
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<dd:deploy xmlns:dd="http://www.apache.org/ode/schemas/dd/2007/03"><dd:process xmlns:dd="http://www.apache.org/ode/schemas/dd/2007/03" xmlns:diag="http://absencerequest.com/Processes/AbsenceRequest" xmlns:Absence_RequestimplicitPartner="http://absencerequest.com/Processes/AbsenceRequest/Absence_RequestimplicitPartner" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:attachments="http://www.intalio.com/gi/Forms/SubmitAbsenceRequest.gi/attachments" xmlns:SubmitAbsenceRequest="http://www.intalio.com/gi/Forms/SubmitAbsenceRequest.gi" xmlns:ApproveAbsenceRequest="http://www.intalio.com/gi/Forms/ApproveAbsenceRequest.gi/attachments" xmlns:NotifyAbsenceRequest="http://www.intalio.com/gi/Forms/NotifyAbsenceRequest.gi/attachments" xmlns:this="http://absencerequest.com/Processes/AbsenceRequest/Absence_Request" xmlns:NotifyAbsenceRequest1="http://www.intalio.com/gi/Forms/NotifyAbsenceRequest.gi" xmlns:ApproveAbsenceRequest1="http://www.intalio.com/gi/Forms/ApproveAbsenceRequest.gi" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="this:Absence_Request" fileName="Processes/AbsenceRequest-Absence_Request.bpel">
+  <dd:property name="PATH">Processes/AbsenceRequest</dd:property>
+  <dd:property name="SVG">Processes/AbsenceRequest.svg</dd:property>
+  <dd:provide partnerLink="absence_RequestimplicitPartnerAndAbsence_RequestForPortTypeProcessPlkVar">
+    <dd:service name="this:Absence_RequestimplicitPartnerAndAbsence_RequestForPortTypeProcessPlkService" port="Absence_Request_for_Absence_RequestimplicitPartnerPort"></dd:service>
+  </dd:provide>
+  <dd:provide partnerLink="wFmagic_FAliEIA4EeOyNLOFBEJoPgPlkVar">
+    <dd:service name="this:WFmagic_FAliEIA4EeOyNLOFBEJoPgService" port="Absence_Request_for_Absence_RequestimplicitPartnerForThePortTypeProcessPort"></dd:service>
+  </dd:provide>
+  <dd:invoke partnerLink="wFmagic_FAliEIA4EeOyNLOFBEJoPgPlkVar">
+    <dd:service name="ApproveAbsenceRequest1:WorkflowSoapService" port="ApproveAbsenceRequestPort"></dd:service>
+  </dd:invoke>
+  <dd:invoke partnerLink="absence_RequestimplicitPartnerAndAbsence_RequestForNotifyAbsenceRequestPortPlkVar">
+    <dd:service name="NotifyAbsenceRequest1:WorkflowSoapService" port="NotifyAbsenceRequestPort"></dd:service>
+  </dd:invoke>
+</dd:process></dd:deploy>

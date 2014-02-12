@@ -32,7 +32,7 @@ define "tempo-forms" do
   project.version = VERSION_NUMBER
   project.group = "org.intalio.tempo"
   define "AbsenceRequest" do
-    package(:zip).path("AbsenceRequest.pipa").include(_("src/main/pipa/*"))
-    package(:zip).path("AbsenceRequest.xform").include(_("src/main/xform/*"))
+    package(:zip).path("workflow.pipa").include(_("src/main/pipa/*"))
+    package(:zip).path("forms.gi").include(_("src/main/gi/*"))
   end
 end
