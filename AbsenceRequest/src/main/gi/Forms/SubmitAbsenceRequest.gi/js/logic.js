@@ -69,6 +69,9 @@ jsx3.lang.Package.definePackage(
       
       //update endpoint
       var endpoint = objService.getEndpointURL();
+      var formlocation = getFormlocation();
+      var newendpoint = formLocation + endpoint.substring(endpoint.indexOf('/axis2/'));
+      objService.setEndpointURL(newendpoint);
       
       //call the service
       objService.doCall();
