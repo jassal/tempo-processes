@@ -284,7 +284,7 @@
             <bpel:from>$EmployeeRequest.root/SubmitAbsenceRequest:taskOutput/SubmitAbsenceRequest:FormModel/PersonDetails/reporter-map</bpel:from>
             <bpel:to>$RequestManagerDecision.root/ApproveAbsenceRequest1:taskInput/ApproveAbsenceRequest1:FormModel/PersonDetails/submitter-map</bpel:to>
           </bpel:copy>
-          <bpel:copy>
+          <bpel:copy ignoreMissingFromData="yes">
             <bpel:from>$EmployeeRequest.root/SubmitAbsenceRequest:taskOutput/SubmitAbsenceRequest:FormModel/PersonDetails/comments</bpel:from>
             <bpel:to>$RequestManagerDecision.root/ApproveAbsenceRequest1:taskInput/ApproveAbsenceRequest1:FormModel/PersonDetails/comments</bpel:to>
           </bpel:copy>

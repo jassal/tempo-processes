@@ -273,12 +273,12 @@
         <variants/>
         <strings riaLabelText="Decision" riaLayoutDirection="vertical" jsxname="ManagerDecision-field" riaErrorImageSrc="images/error.gif" jsxclassname="field" riaHelpImageSrc="images/help.gif"/>
         <object type="jsx3.gui.RadioButton">
-          <variants jsxheight="18" jsxselected="0" jsxdefaultselected="1" jsxrelativeposition="1"/>
+          <variants jsxheight="18" jsxselected="0" jsxdefaultselected="1" jsxrequired="1" jsxrelativeposition="1"/>
           <strings jsxgroupname="Decision" jsxvalue="Approved" jsxname="Approved" jsxmargin="0 4 0 0" jsxtext="Approve"/>
           <events jsxselect="com.intalio.ria.validate(this, objEVENT);"/>
         </object>
         <object type="jsx3.gui.RadioButton">
-          <variants jsxheight="18" jsxselected="0" jsxdefaultselected="1" jsxrelativeposition="1"/>
+          <variants jsxheight="18" jsxselected="0" jsxdefaultselected="1" jsxrequired="1" jsxrelativeposition="1"/>
           <strings jsxgroupname="Decision" jsxvalue="Rejected" jsxname="Rejected" jsxmargin="0 4 0 0" jsxtext="Reject"/>
           <events jsxselect="com.intalio.ria.validate(this, objEVENT);"/>
         </object>
