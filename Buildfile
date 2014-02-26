@@ -34,5 +34,6 @@ define "tempo-forms" do
   define "AbsenceRequest" do
     package(:zip).path("workflow.pipa").include(_("src/main/pipa/*"))
     package(:zip).path("forms.gi").include(_("src/main/gi/*"))
+    package(:zip).include(_("src/main/assembly.properties"))
   end
 end
