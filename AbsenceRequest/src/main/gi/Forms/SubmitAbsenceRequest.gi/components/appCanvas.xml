@@ -128,6 +128,11 @@
         <strings jsxwidth="100%" jsxname="required-note"/>
         <dynamics jsxtext="Required Note"/>
       </object>
+      <object type="jsx3.gui.Button">
+        <variants jsxindex="0" jsxheight="18"/>
+        <strings jsxname="autofillbtn" jsxmargin="0 4 0 0" jsxtext="Auto-Fill"/>
+        <events jsxexecute="autofill();"/>
+      </object>
     </object>
     <object type="com.intalio.ria.Section">
       <variants/>
@@ -256,7 +261,7 @@
           <object type="jsx3.gui.Matrix">
             <variants jsxheaderheight="20" jsxheight="40" jsxsuppressvscroll="1" jsxautorow="1" jsxscalewidth="1" jsxresize="1" jsxxmlbind="1" jsxselectionmodel="0" jsxpagingmodel="1" jsxjsxxmlasync="1" jsxrequired="1" jsxrowheight="20"/>
             <strings jsxsortdirection="descending" jsxheaderborder="1px solid #dfdfef" jsxbodyborder="1px solid #dfdfef" jsxxmlid="LeaveList" jsxsortpath="from" jsxsorttype="text" jsxname="LeaveList" jsxbgcolor="#efefff"/>
-            <events jsxaftercommit="resizeLeaveList();jsx3.util.Logger.doLog(&quot;commit&quot;);this.getParent().getParent().validate(this, objEVENT);"/>
+            <events jsxaftercommit="resizeLeaveList();this.getParent().getParent().validate(this, objEVENT);"/>
             <xslparameters jsx_rowbg2="#efefff" jsx_rowbg1="#ffffff"/>
             <object type="jsx3.gui.Matrix.Column">
               <variants jsxwidth="55"/>

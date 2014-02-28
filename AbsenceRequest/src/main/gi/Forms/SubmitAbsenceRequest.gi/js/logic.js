@@ -1,10 +1,66 @@
 /* place JavaScript code here */
 var personOnLeave;
+var autofillbtn;
 var form=SubmitAbsenceRequest;
 
+function autofill() {
+    var relationRadio = form.getJSXByName('Myself');
+    relationRadio.setSelected(jsx3.gui.RadioButton.SELECTED);
+    com.intalio.ria.validate(relationRadio,jsx3.gui.Event.SELECT);
+    selfForm();
+
+    var phone = form.getJSXByName('Phone');
+    var code = phone.getChild(0);
+    var pnumber = phone.getChild(1);
+    code.setValue('+1');
+    pnumber.setValue('5961800');
+    com.intalio.ria.validate(code,jsx3.gui.Event.SELECT);
+    com.intalio.ria.validate(pnumber,jsx3.gui.Event.SELECT);
+    var email = form.getJSXByName('email');
+    email.setValue('admin@example.com');
+    com.intalio.ria.validate(email,jsx3.gui.Event.SELECT);
+    form.getJSXByName('comments').setValue('Sample Data');
+
+    var substitutename = form.getJSXByName('substitutename');
+    substitutename.setValue('Emily Williams');
+    com.intalio.ria.validate(substitutename,jsx3.gui.Event.CHANGE);
+
+    var phoneWhileAway = form.getJSXByName('PhoneWhileAway-field');
+    var codeWhileAway = phoneWhileAway.getChild(0);
+    var pnumberWhileAway = phoneWhileAway.getChild(1);
+    codeWhileAway.setValue('+1');
+    pnumberWhileAway.setValue('5961900');
+    com.intalio.ria.validate(codeWhileAway,jsx3.gui.Event.SELECT);
+    com.intalio.ria.validate(pnumberWhileAway,jsx3.gui.Event.SELECT);
+    var emailWhileAway = form.getJSXByName('emailWhileAway');
+    emailWhileAway.setValue('ewilliams@examples.intalio.com');
+    com.intalio.ria.validate(emailWhileAway,jsx3.gui.Event.SELECT);
+
+    var LeaveList = form.getJSXByName('LeaveList');
+    var objRecord = new Object();
+    objRecord.jsxid = jsx3.CDF.getKey();
+
+    var fromDate = new Date();
+    fromDate.setDate(fromDate.getDate() + 1);
+
+    var toDate = new Date()
+    toDate.setDate(toDate.getDate() + 3);
+
+    objRecord.from = fromDate.valueOf();
+    objRecord.to = toDate.valueOf();
+    objRecord.leaveType = "PTO";
+    objRecord.shortComment = 'Sample data';
+    LeaveList.insertRecord(objRecord, null, true);
+    LeaveList.getParent().getParent().validate(LeaveList, jsx3.gui.Interactive.AFTER_COMMIT);
+    LeaveList.repaintData();
+
+    autofillbtn.setEnabled(jsx3.gui.Form.STATEDISABLED,true);
+}
 
 function init(){
 personOnLeave=form.getJSXByName("PersonOnLeave");
+autofillbtn = form.getJSXByName('autofillbtn');
+autofillbtn.setEnabled(jsx3.gui.Form.STATEENABLED,true);
 form.getJSXByName("reporterid-map").setText(Intalio.Internal.Utilities.getUser());
 form.getJSXByName("from").allowDate=futureDate(new Date());
 form.getJSXByName("to").allowDate=futureDate(new Date());
@@ -28,7 +84,7 @@ else return false;
 
 function resizeLeaveList(){
 var leaveList=form.getJSXByName("LeaveList");
-jsx3.util.Logger.doLog(leaveList.getRowHeight());
+//jsx3.util.Logger.doLog(leaveList.getRowHeight());
 //alert(form.getJSXByName("LeaveList").getRecordIds().leng);
 var newHeight=(leaveList.getRecordIds().length+1)*leaveList.getRowHeight()+leaveList.getHeaderHeight();
 leaveList.getParent().setHeight(newHeight).repaint();
