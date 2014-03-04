@@ -239,7 +239,7 @@
           <variants jsxheight="40" jsxwidth="500" jsxoverflow="3"/>
           <strings jsxcolor="" jsxname="leaveType-block" jsxrelativeposition="1"/>
           <object type="jsx3.gui.Matrix">
-            <variants jsxheaderheight="20" jsxheight="40" jsxsuppressvscroll="1" jsxautorow="1" jsxscalewidth="1" jsxresize="1" jsxxmlbind="1" jsxselectionmodel="0" jsxpagingmodel="1" jsxjsxxmlasync="1" jsxrequired="1" jsxrowheight="20"/>
+            <variants jsxheaderheight="20" jsxheight="40" jsxsuppressvscroll="1" jsxautorow="1" jsxscalewidth="1" jsxresize="1" jsxxmlbind="1" jsxselectionmodel="0" jsxpagingmodel="1" jsxjsxxmlasync="1" jsxrequired="0" jsxrowheight="20"/>
             <strings jsxsortdirection="descending" jsxheaderborder="1px solid #dfdfef" jsxbodyborder="1px solid #dfdfef" jsxxmlid="LeaveList" jsxsortpath="from" jsxsorttype="text" jsxname="LeaveList" jsxbgcolor="#efefff"/>
             <events jsxaftercommit="resizeLeaveList();jsx3.util.Logger.doLog(&quot;commit&quot;);this.getParent().getParent().validate(this, objEVENT);" jsxbeforeedit="false;"/>
             <xslparameters jsx_rowbg2="#efefff" jsx_rowbg1="#ffffff"/>
@@ -248,7 +248,7 @@
               <strings jsxpath="from" jsxcellpadding="2" jsxpadding="2" jsxformathandler="@date, yyyy-MM-dd" jsxname="fromColumn" jsxvaluetemplate="@empty"/>
               <dynamics jsxbg="@Bevel TopDown" jsxbgcolor="@Solid Disabled" jsxborder="@Outset" jsxtext="From"/>
               <object type="jsx3.gui.DatePicker">
-                <variants jsxenabled="0" jsxtop="0" jsxleft="0" jsxheight="20" jsxwidth="84" jsxzindex="10" jsxrequired="1" jsxrelativeposition="0"/>
+                <variants jsxenabled="0" jsxtop="0" jsxleft="0" jsxheight="20" jsxwidth="84" jsxzindex="10" jsxrequired="0" jsxrelativeposition="0"/>
                 <strings jsxpath="from" jsxformat="yyyy-MM-dd" jsxstyleoverride="background-color:white;" jsxdisplay="none" jsxname="from"/>
                 <dynamics jsxdateformat="@Medium"/>
               </object>
@@ -258,7 +258,7 @@
               <strings jsxpath="to" jsxcellpadding="2" jsxpadding="2" jsxformathandler="@date, yyyy-MM-dd" jsxname="toColumn" jsxvaluetemplate="@empty"/>
               <dynamics jsxbg="@Bevel TopDown" jsxbgcolor="@Solid Disabled" jsxborder="@Outset" jsxtext="To"/>
               <object type="jsx3.gui.DatePicker">
-                <variants jsxenabled="0" jsxtop="0" jsxleft="88" jsxheight="20" jsxwidth="87" jsxzindex="10" jsxrequired="1" jsxrelativeposition="0"/>
+                <variants jsxenabled="0" jsxtop="0" jsxleft="88" jsxheight="20" jsxwidth="87" jsxzindex="10" jsxrequired="0" jsxrelativeposition="0"/>
                 <strings jsxpath="to" jsxformat="yyyy-MM-dd" jsxstyleoverride="background-color:white;" jsxdisplay="none" jsxname="to"/>
                 <dynamics jsxdateformat="@Medium"/>
               </object>
@@ -268,7 +268,7 @@
               <strings jsxpath="leaveType" jsxcellpadding="3 0 0 4" jsxpadding="2" jsxformathandler="@lookup" jsxname="leaveTypeColumn" jsxvaluetemplate="@empty" jsxtext="Leave Type"/>
               <dynamics jsxbg="@Bevel TopDown" jsxbgcolor="@Solid Disabled" jsxborder="@Outset"/>
               <object type="jsx3.gui.Select">
-                <variants jsxenabled="0" jsxtop="0" jsxleft="175" jsxheight="20" jsxwidth="100" jsxzindex="10" jsxtype="1" jsxrequired="1" jsxrelativeposition="0"/>
+                <variants jsxenabled="0" jsxtop="0" jsxleft="175" jsxheight="20" jsxwidth="100" jsxzindex="10" jsxtype="1" jsxrequired="0" jsxrelativeposition="0"/>
                 <strings jsxpath="leaveType" jsxstyleoverride="background-color:white;" jsxxml="&lt;data jsxid=&quot;jsxroot&quot;> &lt;record jsxid=&quot;PTO&quot; jsxtext=&quot;PTO (Paid Time Off)&quot;/>  &lt;record jsxid=&quot;vacation&quot; jsxtext=&quot;Vacation&quot;/>  &lt;record jsxid=&quot;paidSabbatical&quot; jsxtext=&quot;Paid Sabbatical&quot;/>  &lt;record jsxid=&quot;juryDuty&quot; jsxtext=&quot;Jury Duty&quot;/>  &lt;record jsxid=&quot;leaveWithoutPay&quot; jsxtext=&quot;Leave Without Pay&quot;/>  &lt;record jsxid=&quot;pregnancyDisability&quot; jsxtext=&quot;Pregnancy Disability&quot;/>  &lt;record jsxid=&quot;personal&quot; jsxtext=&quot;Personal&quot;/>  &lt;record jsxid=&quot;militaryLeave&quot; jsxtext=&quot;Military Leave&quot;/>  &lt;record jsxid=&quot;otherDisability&quot; jsxtext=&quot;Other Disability&quot;/>  &lt;record jsxid=&quot;unpaidSabbatical&quot; jsxtext=&quot;unpaidSabbatical&quot;/>  &lt;/data>" jsxdisplay="none" jsxname="leaveType"/>
                 <xslparameters jsxsortpath="jsxid"/>
               </object>
