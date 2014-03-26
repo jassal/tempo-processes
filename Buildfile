@@ -4,7 +4,7 @@ require "install.rb"
 
 
 # Keep this structure to allow the build system to update version numbers.
-VERSION_NUMBER = "6.3.01-SNAPSHOT"
+VERSION_NUMBER = "6.3.01"
 
 desc "Workflow Processes"
 define "tempo-processes" do
