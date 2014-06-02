@@ -19,7 +19,7 @@ jsxversion="1.0">
     type="S" soapstyle="document">
       <record jsxid="x13586" jsxtext="createTask"
       opname="createTask"
-      endpoint="intalio/ode/processes/workflow/ib4p"
+      endpoint="/intalio/ode/processes/workflow/ib4p"
       method="POST" type="P"
       path="/jsx1:definitions/jsx1:binding/jsx1:operation">
         <headers jsxid="x91007">
@@ -392,7 +392,7 @@ jsxversion="1.0">
       </record>
       <record jsxid="x90928" jsxtext="escalateTask"
       opname="escalateTask"
-      endpoint="intalio/ode/processes/workflow/ib4p"
+      endpoint="/intalio/ode/processes/workflow/ib4p"
       method="POST" type="P"
       path="/jsx1:definitions/jsx1:binding/jsx1:operation[2]">
         <headers jsxid="x95249">
@@ -421,7 +421,7 @@ jsxversion="1.0">
         </record>
       </record>
       <record jsxid="x60844" jsxtext="skipTask" opname="skipTask"
-      endpoint="intalio/ode/processes/workflow/ib4p"
+      endpoint="/intalio/ode/processes/workflow/ib4p"
       method="POST" type="P"
       path="/jsx1:definitions/jsx1:binding/jsx1:operation[3]">
         <headers jsxid="x89287">

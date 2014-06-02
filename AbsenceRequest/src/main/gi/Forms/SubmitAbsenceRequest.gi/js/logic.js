@@ -126,7 +126,7 @@ jsx3.lang.Package.definePackage(
       //update endpoint
       var endpoint = objService.getEndpointURL();
       var formlocation = getFormlocation();
-      var newendpoint = formLocation + endpoint.substring(endpoint.indexOf('/axis2/'));
+      var newendpoint = formLocation + endpoint.substring(endpoint.indexOf('/intalio/ode/'));
       objService.setEndpointURL(newendpoint);
       
       //call the service
@@ -171,7 +171,7 @@ jsx3.lang.Package.definePackage(
       //update endpoint
       var endpoint = objService.getEndpointURL();
       var formlocation = getFormlocation();
-      var newendpoint = formLocation + endpoint.substring(endpoint.indexOf('/axis2/'));
+      var newendpoint = formLocation + endpoint.substring(endpoint.indexOf('/intalio/ode/'));
       objService.setEndpointURL(newendpoint);
       
       //call the service
@@ -198,7 +198,7 @@ jsx3.lang.Package.definePackage(
 
 function getFormlocation(){
     var str = document.URL
-    formLocation = str.substring(0,str.indexOf("/gi/apppath"));
+    formLocation = str.substring(0,str.indexOf("/intalio/gi/apppath"));
     return formLocation;
 };
 
