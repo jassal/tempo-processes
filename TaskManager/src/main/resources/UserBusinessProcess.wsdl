@@ -274,7 +274,7 @@
 			binding="ubp:userProcessSoapBinding">
 
 			<soap:address
-				location="http://localhost:8080/fds/workflow/ib4p" />
+				location="http://localhost:8080/intalio/ode/processes/workflow/ib4p" />
 
 		</wsdl:port>
 

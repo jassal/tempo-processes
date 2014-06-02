@@ -399,7 +399,7 @@ jsx3.lang.Package.definePackage(
             return;
         }        
         
-        document.location.href = "/ui-fw/script/empty.jsp";
+        document.location.href = "/intalio/workflow/script/empty.jsp";
         jsx3.log("complete succeeded.");
     };
 
@@ -787,7 +787,7 @@ jsx3.lang.Package.definePackage(
     
     attach.updateCDFNode = function(context) {
         var url = context.getAttribute("IntalioInternal_PayloadUrl");
-        var href = "<img src='/gi/files/images/remove.gif' border='0' " + 
+        var href = "<img src='/intalio/gi/files/images/remove.gif' border='0' " + 
                    "  onClick='Intalio.Internal.Attachments.removeAttachment(\"" + url + "\");' />"; 
         context.setAttribute("IntalioInternal_RemoveImage", href); 
         
@@ -1411,7 +1411,7 @@ jsx3.lang.Package.definePackage(
                 
             document.location.href = fullUrl;
         } else {
-            document.location.href = "/ui-fw/script/empty.jsp";
+            document.location.href = "/intalio/workflow/script/empty.jsp";
         }        
     };    
     
@@ -1755,7 +1755,7 @@ jsx3.lang.Package.definePackage(
 			}
 		}
 		if(!matched) {
-			document.location.href = "/ui-fw/script/empty.jsp";
+			document.location.href = "/intalio/workflow/script/empty.jsp";
 		}
     };
     
@@ -2299,13 +2299,13 @@ jsx3.lang.Package.definePackage(
           request.subscribe(jsx3.net.Request.EVENT_ON_RESPONSE, onSuccess);
           request.subscribe(jsx3.net.Request.EVENT_ON_TIMEOUT, onTimeOut);
           
-          request.open("POST", "/gi/validation", true);
+          request.open("POST", "/intalio/gi/validation", true);
           request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8"); 
           request.send(message, tout);
       };
       
       com.getPath = function() {
-          var giAppPath = "/gi/apppath/";
+          var giAppPath = "/intalio/gi/apppath/";
           var url = Intalio.Internal.Utilities.getFormUrl();
           var uri = new jsx3.net.URI(url);
           var path = uri.getPath();

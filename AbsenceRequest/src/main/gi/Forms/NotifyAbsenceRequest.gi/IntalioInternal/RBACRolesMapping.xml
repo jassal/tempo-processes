@@ -15,7 +15,7 @@
 			type="S" soapstyle="document">
 			<record jsxid="x40461" jsxtext="getAssignedRoles" 
 				opname="getAssignedRoles" 
-				endpoint="/axis2/services/RBACQueryService.RBACService/" 
+				endpoint="intalio/ode/processes/RBACQueryService.RBACService/" 
 				method="POST" type="P" path="/jsx1:definitions/jsx1:binding/jsx1:operation[7]" jsxopen="1">
 			<headers jsxid="x23172">
 				<record jsxid="x95079" name="SOAPAction" value="getAssignedRoles"/>

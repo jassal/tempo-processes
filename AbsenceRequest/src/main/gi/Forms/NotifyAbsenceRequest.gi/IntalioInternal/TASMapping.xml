@@ -9,12 +9,12 @@ jsxversion="1.0">
   jsxopen="1" src="IntalioInternal/tas.wsdl" type="W"
   path="/jsx1:definitions">
     <record jsxid="x82799"
-    jsxtext="Service (http://localhost:8080/axis2/services/tas)"
+    jsxtext="Service (http://localhost:8080/intalio/ode/processes/tas)"
     jsxopen="1"
     path="/jsx1:definitions/jsx1:service/jsx1:port/jsx5:address"
     type="S" soapstyle="document">
       <record jsxid="x63570" jsxtext="add" opname="add"
-      endpoint="/axis2/services/tas"
+      endpoint="/intalio/ode/processes/tas"
       method="POST" type="P"
       path="/jsx1:definitions/jsx1:binding/jsx1:operation">
         <headers jsxid="x19429">
@@ -140,7 +140,7 @@ jsxversion="1.0">
         </record>
       </record>
       <record jsxid="x62089" jsxtext="delete" opname="delete"
-      endpoint="/axis2/services/tas"
+      endpoint="/intalio/ode/processes/tas"
       method="POST" type="P"
       path="/jsx1:definitions/jsx1:binding/jsx1:operation[2]">
         <headers jsxid="x21935">
