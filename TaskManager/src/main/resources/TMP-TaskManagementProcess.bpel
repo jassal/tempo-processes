@@ -535,8 +535,8 @@
         </bpel:catch>
       </bpel:faultHandlers>
       <bpel:eventHandlers>
-          <bpel:until>if (boolean(normalize-space($createTMSTaskRequest.createRequest/tns:task/tns:metadata/tns:deadline))) then ($createTMSTaskRequest.createRequest/tns:task/tns:metadata/tns:deadline) else (current-dateTime())</bpel:until>
         <bpel:onAlarm>
+          <bpel:until>if (boolean(normalize-space($createTMSTaskRequest.createRequest/tns:task/tns:metadata/tns:deadline))) then ($createTMSTaskRequest.createRequest/tns:task/tns:metadata/tns:deadline) else (current-dateTime())</bpel:until>
           <bpel:if>
             <bpel:condition>boolean(normalize-space($createTMSTaskRequest.createRequest/tns:task/tns:metadata/tns:deadline))</bpel:condition>
             <bpel:sequence>
