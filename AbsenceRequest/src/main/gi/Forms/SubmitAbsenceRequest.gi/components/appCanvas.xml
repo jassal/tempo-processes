@@ -7,10 +7,10 @@
   <onAfterDeserialize/>
   <object type="jsx3.gui.Block">
     <variants jsxoverflow="1"/>
-    <strings jsxheight="100%" jsxwidth="100%" jsxstyleoverride="margin-top:0px;" jsxname="root"/>
+    <strings jsxheight="100%" jsxwidth="98%" jsxstyleoverride="margin-top:0px;" jsxname="root"/>
     <object type="jsx3.gui.Block">
       <variants/>
-      <strings jsxwidth="100%" jsxname="IntalioInternal_SpacerBlockTop" jsxmargin="15 0 0 0" jsxborder="1px solid gray; 0px solid; 0px solid; 0px solid;"/>
+      <strings jsxwidth="98%" jsxname="IntalioInternal_SpacerBlockTop" jsxmargin="0 0 0 0" jsxborder="1px solid gray; 0px solid; 0px solid; 0px solid;"/>
     </object>
     <object type="jsx3.gui.Button">
       <variants jsxenabled="0" jsxheight="20"/>
@@ -50,13 +50,13 @@
     </object>
     <object type="jsx3.gui.Block">
       <variants jsxheight="18" jsxoverflow="3"/>
-      <strings jsxwidth="100%" jsxdisplay="none" jsxname="IntalioInternal_AttachmentsImageBlock"/>
+      <strings jsxwidth="98%" jsxdisplay="none" jsxname="IntalioInternal_AttachmentsImageBlock"/>
       <object type="jsx3.gui.LayoutGrid">
         <variants jsxtop="0" jsxleft="0" jsxoverflow="2" jsxrelativeposition="0"/>
-        <strings jsxcols="16,*" jsxheight="100%" jsxwidth="100%" jsxname="IntalioInternal_Layout"/>
+        <strings jsxcols="16,*" jsxheight="100%" jsxwidth="98%" jsxname="IntalioInternal_Layout"/>
         <object type="jsx3.gui.Block">
           <variants/>
-          <strings jsxheight="100%" jsxwidth="100%" jsxname="IntalioInternal_Pane"/>
+          <strings jsxheight="100%" jsxwidth="98%" jsxname="IntalioInternal_Pane"/>
           <object type="jsx3.gui.Image">
             <variants/>
             <strings jsxsrc="images/attachments.gif" jsxdisplay="" jsxname="IntalioInternal_Image"/>
@@ -65,7 +65,7 @@
         </object>
         <object type="jsx3.gui.Block">
           <variants/>
-          <strings jsxheight="100%" jsxwidth="100%" jsxtextalign="right" jsxname="IntalioInternal_Pane"/>
+          <strings jsxheight="100%" jsxwidth="98%" jsxtextalign="right" jsxname="IntalioInternal_Pane"/>
           <object type="jsx3.gui.Image">
             <variants/>
             <strings jsxsrc="images/close.png" jsxdisplay="none" jsxname="IntalioInternal_CloseImage"/>
@@ -76,10 +76,10 @@
     </object>
     <object type="jsx3.gui.Block">
       <variants jsxoverflow="3"/>
-      <strings jsxwidth="100%" jsxdisplay="none" jsxname="IntalioInternal_AttachmentsBlock"/>
+      <strings jsxwidth="98%" jsxdisplay="none" jsxname="IntalioInternal_AttachmentsBlock"/>
       <object type="jsx3.gui.Block">
         <variants/>
-        <strings jsxwidth="100%" jsxdisplay="" jsxname="IntalioInternal_AttachmentsMatrixBlock" jsxborder="1px solid black; 1px solid black; none; 1px solid black;"/>
+        <strings jsxwidth="98%" jsxdisplay="" jsxname="IntalioInternal_AttachmentsMatrixBlock" jsxborder="1px solid black; 1px solid black; none; 1px solid black;"/>
         <object type="jsx3.gui.Matrix">
           <variants jsxsuppressvscroll="1" jsxreorder="0" jsxselectionmodel="0" jsxpagingmodel="0" jsxjsxxmlasync="1"/>
           <strings jsxxmlid="IntalioInternal_Attachments" jsxname="IntalioInternal_AttachmentsMatrix"/>
@@ -105,10 +105,10 @@
       </object>
       <object type="jsx3.gui.Block">
         <variants jsxoverflow="3"/>
-        <strings jsxwidth="100%" jsxdisplay="" jsxname="IntalioInternal_AttachmentsFormBlock"/>
+        <strings jsxwidth="98%" jsxdisplay="" jsxname="IntalioInternal_AttachmentsFormBlock"/>
         <object type="jsx3.gui.Block">
           <variants jsxoverflow="3"/>
-          <strings jsxwidth="100%" jsxdisplay="" jsxname="IntalioInternal_AttachmentsFormLabel"/>
+          <strings jsxwidth="98%" jsxdisplay="" jsxname="IntalioInternal_AttachmentsFormLabel"/>
         </object>
         <object type="jsx3.gui.Block">
           <variants jsxoverflow="3"/>
@@ -118,14 +118,14 @@
     </object>
     <object type="jsx3.gui.Block">
       <variants/>
-      <strings jsxwidth="100%" jsxpadding="5 10 0 10" jsxname="header" jsxbgcolor="" jsxrelativeposition="1"/>
+      <strings jsxwidth="98%" jsxpadding="5 10 0 10" jsxname="header" jsxbgcolor="" jsxrelativeposition="1"/>
       <object type="jsx3.gui.Block">
         <variants jsxrelativeposition="1"/>
-        <strings jsxwidth="100%" jsxstyleoverride="color:white;padding:10px;" jsxbg="" jsxname="form-title" jsxbgcolor="#336699" jsxclassname="form-title" jsxtext="Submit Absence Request"/>
+        <strings jsxwidth="98%" jsxstyleoverride="color:white;padding:10px;" jsxbg="" jsxname="form-title" jsxbgcolor="#336699" jsxclassname="form-title" jsxtext="Submit Absence Request"/>
       </object>
       <object type="jsx3.gui.Block">
         <variants jsxrelativeposition="1"/>
-        <strings jsxwidth="100%" jsxname="required-note"/>
+        <strings jsxwidth="98%" jsxname="required-note"/>
         <dynamics jsxtext="Required Note"/>
       </object>
       <object type="jsx3.gui.Button">
@@ -195,7 +195,7 @@
         <dynamics riaLabelText="Email"/>
         <object type="jsx3.gui.TextBox">
           <variants jsxrequired="1"/>
-          <strings jsxwidth="100%" jsxvalue="" jsxpadding="2 2 0 0" jsxvalidationtype="email" jsxname="email" jsxmargin="0 4 0 0"/>
+          <strings jsxwidth="98%" jsxvalue="" jsxpadding="2 2 0 0" jsxvalidationtype="email" jsxname="email" jsxmargin="0 4 0 0"/>
           <events jsxincchange="com.intalio.ria.validate(this, objEVENT);" jsxfocus="com.intalio.ria.highlightTextInput(this, false);" jsxchange="com.intalio.ria.validate(this, objEVENT);" jsxblur="com.intalio.ria.highlightTextInput(this, true);"/>
         </object>
       </object>
@@ -319,7 +319,7 @@
     </object>
     <object type="jsx3.gui.Block">
       <variants/>
-      <strings jsxwidth="100%" jsxname="IntalioInternal_SpacerBlock" jsxmargin="15 0 0 0" jsxborder="1px solid gray; 0px solid; 0px solid; 0px solid;"/>
+      <strings jsxwidth="98%" jsxname="IntalioInternal_SpacerBlock" jsxmargin="0 0 0 0" jsxborder="1px solid gray; 0px solid; 0px solid; 0px solid;"/>
     </object>
     <object type="jsx3.gui.Button">
       <variants jsxenabled="0" jsxheight="20"/>
