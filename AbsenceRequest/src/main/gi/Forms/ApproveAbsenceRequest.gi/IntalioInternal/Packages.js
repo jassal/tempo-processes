@@ -1150,7 +1150,7 @@ jsx3.lang.Package.definePackage(
             }
         } 
         else {        
-            if (taskState == "NONE") {
+            if (taskType == "INIT") {
                 util.SERVER.getJSXByName("IntalioInternal_StartButton").setEnabled(true, true);
                 util.SERVER.getJSXByName("IntalioInternal_SaveButton").setEnabled(true, true);
 		var item;
