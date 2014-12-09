@@ -779,7 +779,7 @@ jsx3.lang.Package.definePackage(
     attach.removeAttachment = function(url) {
         var urlObj = Intalio.Internal.Utilities.SERVER.getJSXByName("IntalioInternal_AttachmentsUrl");
         if (urlObj == null) return;
-        urlObj.setText(url);
+        urlObj.setText(url.getAttribute("data"));
         
         Intalio.Internal.TAS.callDelete();
         Intalio.Internal.TMS.callRemoveAttachment();
@@ -787,8 +787,7 @@ jsx3.lang.Package.definePackage(
     
     attach.updateCDFNode = function(context) {
         var url = context.getAttribute("IntalioInternal_PayloadUrl");
-        var href = "<img src='/intalio/gi/files/images/remove.gif' border='0' " + 
-                   "  onClick='Intalio.Internal.Attachments.removeAttachment(\"" + url + "\");' />"; 
+        var href = "<img src='/intalio/gi/files/images/remove.gif' data='"+url+"' border='0' onClick='Intalio.Internal.Attachments.removeAttachment(this);' />";
         context.setAttribute("IntalioInternal_RemoveImage", href); 
         
         attach.setAttributeHref(url, context, "Title");
