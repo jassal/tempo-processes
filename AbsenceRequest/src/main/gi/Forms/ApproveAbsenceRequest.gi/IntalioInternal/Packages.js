@@ -2304,12 +2304,13 @@ jsx3.lang.Package.definePackage(
       };
       
       com.getPath = function() {
-          var giAppPath = "/intalio/gi/apppath/";
+          var giAppPath = "/gi/apppath/";
+          var giAppPathWithIntalioContext = "/intalio/gi/apppath/";
           var url = Intalio.Internal.Utilities.getFormUrl();
           var uri = new jsx3.net.URI(url);
           var path = uri.getPath();
           
-          if (path.indexOf(giAppPath) == 0 && path.length >= giAppPath.length) {
+          if ((path.indexOf(giAppPath) == 0 || path.indexOf(giAppPathWithIntalioContext) == 0) && path.length >= giAppPath.length) {
               return path.substr(giAppPath.length);
           }
 
