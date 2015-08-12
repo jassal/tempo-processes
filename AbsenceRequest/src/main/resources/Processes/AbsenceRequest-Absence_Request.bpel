@@ -268,6 +268,12 @@
         <bpel:to>$EmployeeDecisionNotification.root</bpel:to>
       </bpel:copy>
     </bpel:assign>
+    <bpel:assign>
+        <bpel:copy>
+            <bpel:from>$ode:pid</bpel:from>
+            <bpel:to>$EmployeeRequest-ACK.root/SubmitAbsenceRequest:taskMetaData/SubmitAbsenceRequest:instanceId</bpel:to>
+        </bpel:copy>
+    </bpel:assign>
     <bpel:reply partnerLink="absence_RequestimplicitPartnerAndAbsence_RequestForPortTypeProcessPlkVar" portType="SubmitAbsenceRequest:Process" operation="initProcess" variable="EmployeeRequest-ACK" bpmn:label="Submit absence leave request" name="Submit_absence_leave_request-1" bpmn:id="_o_--EIA3EeOyNLOFBEJoPg"></bpel:reply>
     <bpel:scope bpmn:label="Approve absence request" name="Approve_absence_request" bpmn:id="_FAiewIA4EeOyNLOFBEJoPg">
       <bpel:sequence>
