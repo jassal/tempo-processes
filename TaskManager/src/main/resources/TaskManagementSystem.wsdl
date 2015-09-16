@@ -307,6 +307,7 @@
                     <xsd:element name="saveAction" type="tns:accessControlType" maxOccurs="1" minOccurs="0"/>
                     <xsd:element name="completeAction" type="tns:accessControlType" maxOccurs="1" minOccurs="0"/>
 					<xsd:element name="attachments" type="tns:attachments"/>
+					<xsd:element name="globalAttachments" type="tns:attachments"/>
                     <xsd:element minOccurs="0" maxOccurs="1" name="customMetadata" type="tns:customMetadataType"/>
   				</xsd:sequence>
 			</xsd:complexType>

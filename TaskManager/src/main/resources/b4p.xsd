@@ -392,6 +392,14 @@
 					</xsd:sequence>
 				</xsd:complexType>
 			</xsd:element>
+            <xsd:element name="globalAttachments" minOccurs="0">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="attachment" type="b4p:attachment"
+                            minOccurs="0" maxOccurs="unbounded" form="unqualified" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
 		</xsd:sequence>
 
 	</xsd:complexType>

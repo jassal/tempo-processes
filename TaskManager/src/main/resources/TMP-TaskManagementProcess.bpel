@@ -55,6 +55,7 @@
             <tns:userProcessEndpoint></tns:userProcessEndpoint>
             <tns:userProcessNamespaceURI></tns:userProcessNamespaceURI>
             <tns:attachments></tns:attachments>
+            <tns:globalAttachments></tns:globalAttachments>
             <tns:customMetadata>
                 <tns:customTaskMetadata></tns:customTaskMetadata>
             </tns:customMetadata>
@@ -157,6 +158,18 @@
         <payloadUrl></payloadUrl>
       </attachment>
     </b4p:attachments>
+    <b4p:globalAttachments>
+      <attachment>
+        <attachmentMetadata>
+          <mimeType></mimeType>
+          <fileName></fileName>
+          <title></title>
+          <description></description>
+          <creationDate></creationDate>
+        </attachmentMetadata>
+        <payloadUrl></payloadUrl>
+      </attachment>
+    </b4p:globalAttachments>
   </b4p:taskMetaData>
   <b4p:status></b4p:status>
   <b4p:errorCode></b4p:errorCode>
@@ -343,6 +356,10 @@
         <bpel:from>$createTaskRequest.root/b4p:taskMetaData/b4p:customMetaData</bpel:from>
         <bpel:to>$createTMSTaskRequest.createRequest/tns:task/tns:metadata/tns:customMetadata/tns:customTaskMetadata</bpel:to>
       </bpel:copy>
+	  <bpel:copy>
+        <bpel:from>if (exists($createTaskRequest.root/b4p:taskMetaData/b4p:globalAttachments)) then (bpel:doXslTransform("changeNamespace.xsl", $createTaskRequest.root/b4p:taskMetaData/b4p:globalAttachments)) else ("")</bpel:from>
+        <bpel:to>$createTMSTaskRequest.createRequest/tns:task/tns:metadata/tns:globalAttachments</bpel:to>
+      </bpel:copy>
     </bpel:assign>
     <bpel:invoke partnerLink="taskManagementProcessAndTaskManagementSystemForPortTaskManagementServicesSOAPPlkVar" portType="tns:TaskManagementServices" operation="create" inputVariable="createTMSTaskRequest" outputVariable="createTMSTaskResponse" bpmn:label="Create Task in Database" name="Create_Task_in_Database-1" bpmn:id="_jiUMsKgTEdylDI4yblkdQQ"></bpel:invoke>
     <bpel:if>
@@ -494,6 +511,18 @@
         <payloadUrl></payloadUrl>
       </attachment>
     </b4p:attachments>
+	<b4p:globalAttachments>
+      <attachment>
+        <attachmentMetadata>
+          <mimeType></mimeType>
+          <fileName></fileName>
+          <title></title>
+          <description></description>
+          <creationDate></creationDate>
+        </attachmentMetadata>
+        <payloadUrl></payloadUrl>
+      </attachment>
+    </b4p:globalAttachments>
   </b4p:taskMetaData>
   <b4p:taskOutput></b4p:taskOutput>
   <b4p:user></b4p:user>
@@ -789,6 +818,18 @@
         <payloadUrl></payloadUrl>
       </attachment>
     </b4p:attachments>
+	<b4p:globalAttachments>
+      <attachment>
+        <attachmentMetadata>
+          <mimeType></mimeType>
+          <fileName></fileName>
+          <title></title>
+          <description></description>
+          <creationDate></creationDate>
+        </attachmentMetadata>
+        <payloadUrl></payloadUrl>
+      </attachment>
+    </b4p:globalAttachments>
   </b4p:taskMetaData>
   <b4p:status></b4p:status>
   <b4p:errorCode></b4p:errorCode>
