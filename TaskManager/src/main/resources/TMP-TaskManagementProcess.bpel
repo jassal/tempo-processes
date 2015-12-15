@@ -414,6 +414,8 @@
         <bpel:variable name="tnsGetTaskOwnerAndStateResponseMsg" messageType="tns:getTaskOwnerAndStateResponse"/>
         <bpel:variable name="b4pReassignTaskRequestMsg" messageType="b4p:reassignTaskRequest"/>
         <bpel:variable name="b4pReassignTaskResponseMsg" messageType="b4p:reassignTaskResponse"/>
+        <bpel:variable name="tnsGetGlobalAttachmentsRequestMsg" messageType="tns:getAttachmentsRequest"/>
+        <bpel:variable name="tnsGetGlobalAttachmentsResponseMsg" messageType="tns:getAttachmentsResponse"/>
       </bpel:variables>
       <bpel:faultHandlers>
         <bpel:catch faultName="this:DeadlineReached">
@@ -858,6 +860,18 @@
               </bpel:from>
               <bpel:to>$b4pReassignTaskResponseMsg.root</bpel:to>
             </bpel:copy>
+            <bpel:copy bpmn:label="$tnsGetGlobalAttachmentsRequestMsg">
+              <bpel:from>
+                <bpel:literal>
+                  <tns:getAttachmentsRequest>
+                  <tns:taskId></tns:taskId>
+                  <tns:participantToken></tns:participantToken>
+                  <tns:globalAttachment></tns:globalAttachment>
+                  </tns:getAttachmentsRequest>
+                </bpel:literal>
+              </bpel:from>
+              <bpel:to>$tnsGetGlobalAttachmentsRequestMsg.getAttachmentsRequest</bpel:to>
+            </bpel:copy>
           </bpel:assign>
           <bpel:pick bpmn:label="Waiting for requests" name="Waiting_for_requests" bpmn:id="_ESlcoKhHEdyQFMjeTyvJzg">
             <bpel:onMessage partnerLink="tMPAndUBPPlkVar" portType="b4p:UserBusinessProcessPortType" operation="escalateTask" variable="escalateTaskRequest" bpmn:label="Receive escalate Task Request" name="Receive_escalate_Task_Request" bpmn:id="_P5U2QKhHEdyQFMjeTyvJzg">
@@ -1175,17 +1189,38 @@
                         </bpel:copy>
                       </bpel:assign>
                       <bpel:invoke partnerLink="taskManagementProcessAndTaskManagementSystemForPortTaskManagementServicesSOAPPlkVar" portType="tns:TaskManagementServices" operation="setOutputAndComplete" inputVariable="completeTMSTaskRequest" outputVariable="completeTMSTaskResponse" bpmn:label="Invoke TMS to mark Task as completed" name="Invoke_TMS_to_mark_Task_as_completed-1" bpmn:id="_wSyCIKhNEdyQFMjeTyvJzg"></bpel:invoke>
-                      <bpel:assign bpmn:label="getAttachements" name="getAttachements" bpmn:id="_6-GHIGmhEd2FXpqqOgbHYQ">
-                        <bpel:copy>
-                          <bpel:from>$completeTaskRequest.root/b4p:participantToken</bpel:from>
-                          <bpel:to>$tnsGetAttachmentsRequestMsg.getAttachmentsRequest/tns:participantToken</bpel:to>
-                        </bpel:copy>
-                        <bpel:copy>
-                          <bpel:from>$completeTaskRequest.root/b4p:taskMetaData/b4p:taskId</bpel:from>
-                          <bpel:to>$tnsGetAttachmentsRequestMsg.getAttachmentsRequest/tns:taskId</bpel:to>
-                        </bpel:copy>
-                      </bpel:assign>
-                      <bpel:invoke partnerLink="taskManagementProcessAndTaskManagementSystemForPortTaskManagementServicesSOAPPlkVar" portType="tns:TaskManagementServices" operation="getAttachments" inputVariable="tnsGetAttachmentsRequestMsg" outputVariable="tnsGetAttachmentsResponseMsg" bpmn:label="getAttachements" name="getAttachements-1" bpmn:id="_6-GHIGmhEd2FXpqqOgbHYQ"></bpel:invoke>
+                      <bpel:flow bpmn:label="Parallel_Gateway" name="Parallel_Gateway" bpmn:id="_5SLIEKL0EeW4atp7skNPkw">
+                          <bpel:sequence>
+                            <bpel:assign bpmn:label="getAttachements" name="getAttachements" bpmn:id="_6-GHIGmhEd2FXpqqOgbHYQ">
+                              <bpel:copy>
+                                <bpel:from>$completeTaskRequest.root/b4p:participantToken</bpel:from>
+                                <bpel:to>$tnsGetAttachmentsRequestMsg.getAttachmentsRequest/tns:participantToken</bpel:to>
+                              </bpel:copy>
+                              <bpel:copy>
+                                <bpel:from>$completeTaskRequest.root/b4p:taskMetaData/b4p:taskId</bpel:from>
+                                <bpel:to>$tnsGetAttachmentsRequestMsg.getAttachmentsRequest/tns:taskId</bpel:to>
+                              </bpel:copy>
+                            </bpel:assign>
+                            <bpel:invoke partnerLink="taskManagementProcessAndTaskManagementSystemForPortTaskManagementServicesSOAPPlkVar" portType="tns:TaskManagementServices" operation="getAttachments" inputVariable="tnsGetAttachmentsRequestMsg" outputVariable="tnsGetAttachmentsResponseMsg" bpmn:label="getAttachements" name="getAttachements-1" bpmn:id="_6-GHIGmhEd2FXpqqOgbHYQ"></bpel:invoke>
+                          </bpel:sequence>
+                          <bpel:sequence>
+                            <bpel:assign bpmn:label="getGlobalAttachments" name="getGlobalAttachments" bpmn:id="_9Z81wKL0EeW4atp7skNPkw">
+                              <bpel:copy>
+                                <bpel:from>$completeTaskRequest.root/b4p:taskMetaData/b4p:taskId</bpel:from>
+                                <bpel:to>$tnsGetGlobalAttachmentsRequestMsg.getAttachmentsRequest/tns:taskId</bpel:to>
+                              </bpel:copy>
+                              <bpel:copy>
+                                <bpel:from>$completeTaskRequest.root/b4p:participantToken</bpel:from>
+                                <bpel:to>$tnsGetGlobalAttachmentsRequestMsg.getAttachmentsRequest/tns:participantToken</bpel:to>
+                              </bpel:copy>
+                              <bpel:copy>
+                                <bpel:from>"true"</bpel:from>
+                                <bpel:to>$tnsGetGlobalAttachmentsRequestMsg.getAttachmentsRequest/tns:globalAttachment</bpel:to>
+                              </bpel:copy>
+                            </bpel:assign>
+                            <bpel:invoke partnerLink="taskManagementProcessAndTaskManagementSystemForPortTaskManagementServicesSOAPPlkVar" portType="tns:TaskManagementServices" operation="getAttachments" inputVariable="tnsGetGlobalAttachmentsRequestMsg" outputVariable="tnsGetGlobalAttachmentsResponse2Msg" bpmn:label="getGlobalAttachments" name="getGlobalAttachments-1" bpmn:id="_9Z81wKL0EeW4atp7skNPkw"></bpel:invoke>
+                          </bpel:sequence>
+                        </bpel:flow>
                       <bpel:if>
                         <bpel:condition>not(boolean(normalize-space($createTaskRequest.root/b4p:taskMetaData/b4p:userProcessEndpoint)))</bpel:condition>
                         <bpel:sequence>
@@ -1234,6 +1269,10 @@
                               <bpel:copy>
                                 <bpel:from>$tnsGetAttachmentsResponseMsg.getAttachmentsResponse</bpel:from>
                                 <bpel:to>$notifyTaskCompletionRequest.root/b4p:taskMetaData/b4p:attachments</bpel:to>
+                              </bpel:copy>
+                              <bpel:copy>
+                                <bpel:from>$tnsGetGlobalAttachmentsResponse2Msg.getAttachmentsResponse</bpel:from>
+                                <bpel:to>$notifyTaskCompletionRequest.root/b4p:taskMetaData/b4p:globalAttachments</bpel:to>
                               </bpel:copy>
                               <bpel:copy ignoreUninitializedFromVariable="yes" ignoreMissingFromData="yes">
                                 <bpel:from>$completeTaskRequest.root/b4p:user</bpel:from>

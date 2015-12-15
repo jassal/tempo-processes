@@ -229,6 +229,7 @@
 			     <xsd:sequence>
 			       <xsd:element name="taskId" type="xsd:string" />
 			       <xsd:element name="participantToken" type="xsd:string" />
+                   <xsd:element minOccurs="0" name="globalAttachment" type="xsd:boolean"/>
 			     </xsd:sequence>
 			   </xsd:complexType>
 			</xsd:element>
