@@ -719,6 +719,18 @@
                 <payloadUrl></payloadUrl>
             </attachment>
         </b4p:attachments>
+        <b4p:globalAttachments>
+            <attachment>
+                <attachmentMetadata>
+                    <mimeType></mimeType>
+                    <fileName></fileName>
+                    <title></title>
+                    <description></description>
+                    <creationDate></creationDate>
+                </attachmentMetadata>
+                <payloadUrl></payloadUrl>
+            </attachment>
+        </b4p:globalAttachments>
     </b4p:taskMetaData>
     <b4p:taskOutput></b4p:taskOutput>
     <b4p:status></b4p:status>
@@ -1218,7 +1230,7 @@
                                 <bpel:to>$tnsGetGlobalAttachmentsRequestMsg.getAttachmentsRequest/tns:globalAttachment</bpel:to>
                               </bpel:copy>
                             </bpel:assign>
-                            <bpel:invoke partnerLink="taskManagementProcessAndTaskManagementSystemForPortTaskManagementServicesSOAPPlkVar" portType="tns:TaskManagementServices" operation="getAttachments" inputVariable="tnsGetGlobalAttachmentsRequestMsg" outputVariable="tnsGetGlobalAttachmentsResponse2Msg" bpmn:label="getGlobalAttachments" name="getGlobalAttachments-1" bpmn:id="_9Z81wKL0EeW4atp7skNPkw"></bpel:invoke>
+                            <bpel:invoke partnerLink="taskManagementProcessAndTaskManagementSystemForPortTaskManagementServicesSOAPPlkVar" portType="tns:TaskManagementServices" operation="getAttachments" inputVariable="tnsGetGlobalAttachmentsRequestMsg" outputVariable="tnsGetGlobalAttachmentsResponseMsg" bpmn:label="getGlobalAttachments" name="getGlobalAttachments-1" bpmn:id="_9Z81wKL0EeW4atp7skNPkw"></bpel:invoke>
                           </bpel:sequence>
                         </bpel:flow>
                       <bpel:if>
@@ -1271,7 +1283,7 @@
                                 <bpel:to>$notifyTaskCompletionRequest.root/b4p:taskMetaData/b4p:attachments</bpel:to>
                               </bpel:copy>
                               <bpel:copy>
-                                <bpel:from>$tnsGetGlobalAttachmentsResponse2Msg.getAttachmentsResponse</bpel:from>
+                                <bpel:from>$tnsGetGlobalAttachmentsResponseMsg.getAttachmentsResponse</bpel:from>
                                 <bpel:to>$notifyTaskCompletionRequest.root/b4p:taskMetaData/b4p:globalAttachments</bpel:to>
                               </bpel:copy>
                               <bpel:copy ignoreUninitializedFromVariable="yes" ignoreMissingFromData="yes">
