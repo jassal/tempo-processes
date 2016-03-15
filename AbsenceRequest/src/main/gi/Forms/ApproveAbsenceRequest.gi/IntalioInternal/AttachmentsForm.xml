@@ -3,7 +3,7 @@
 	uploaded to a servlet.  The servlet then handles the add operations.  -->
 <div>
 	<form name="IntalioInternal_AddAttachmentsForm"
-		action="/intalio/gi/attachment" method="post" enctype="multipart/form-data"
+		action="/everteam/gi/attachment" method="post" enctype="multipart/form-data"
 		target="IntalioInternal_AttachmentsHiddenIFrame">
 
 		<input type="hidden" name="taskId" value="" />
@@ -27,7 +27,7 @@
 			<tr>
 				<td width="5%"
 					style="padding: 3; text-align: center; vertical-align: top;">
-					<img src="/intalio/gi/files/images/add.gif" border="0"
+					<img src="/everteam/gi/files/images/add.gif" border="0"
 						alt="Click to add attachment."
 						onClick="Intalio.Internal.Attachments.addAttachment();" />
 				</td>

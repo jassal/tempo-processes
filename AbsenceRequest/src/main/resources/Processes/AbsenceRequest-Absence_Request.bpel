@@ -74,7 +74,7 @@
       <ApproveAbsenceRequest1:user></ApproveAbsenceRequest1:user>
       <ApproveAbsenceRequest1:role></ApproveAbsenceRequest1:role>
     </ApproveAbsenceRequest1:completeAction>
-    <ApproveAbsenceRequest1:formUrl>/intalio/gi/apppath/AbsenceRequest/Forms/ApproveAbsenceRequest.gi/IntalioInternal/ServerLaunch.html</ApproveAbsenceRequest1:formUrl>
+    <ApproveAbsenceRequest1:formUrl>/everteam/gi/apppath/AbsenceRequest/Forms/ApproveAbsenceRequest.gi/IntalioInternal/ServerLaunch.html</ApproveAbsenceRequest1:formUrl>
     <ApproveAbsenceRequest1:failureCode></ApproveAbsenceRequest1:failureCode>
     <ApproveAbsenceRequest1:failureReason></ApproveAbsenceRequest1:failureReason>
     <ApproveAbsenceRequest1:priority></ApproveAbsenceRequest1:priority>
@@ -103,7 +103,7 @@
     <ApproveAbsenceRequest1:userProcessCompleteSOAPAction>http://www.intalio.com/gi/Forms/ApproveAbsenceRequest.gi/Process/notifyTaskCompletion</ApproveAbsenceRequest1:userProcessCompleteSOAPAction>
     <ApproveAbsenceRequest1:isChainedBefore></ApproveAbsenceRequest1:isChainedBefore>
     <ApproveAbsenceRequest1:previousTaskId></ApproveAbsenceRequest1:previousTaskId>
-    <ApproveAbsenceRequest1:userProcessEndpoint>/intalio/ode/processes/AbsenceRequest/Processes/AbsenceRequest/Absence_Request/Absence_RequestimplicitPartner/WFmagic_FAliEIA4EeOyNLOFBEJoPg</ApproveAbsenceRequest1:userProcessEndpoint>
+    <ApproveAbsenceRequest1:userProcessEndpoint>/everteam/ode/processes/AbsenceRequest/Processes/AbsenceRequest/Absence_Request/Absence_RequestimplicitPartner/WFmagic_FAliEIA4EeOyNLOFBEJoPg</ApproveAbsenceRequest1:userProcessEndpoint>
     <ApproveAbsenceRequest1:userProcessNamespaceURI>http://www.intalio.com/gi/Forms/ApproveAbsenceRequest.gi</ApproveAbsenceRequest1:userProcessNamespaceURI>
     <ApproveAbsenceRequest1:customMetaData></ApproveAbsenceRequest1:customMetaData>
   </ApproveAbsenceRequest1:taskMetaData>
@@ -228,7 +228,7 @@
     <NotifyAbsenceRequest1:instanceId></NotifyAbsenceRequest1:instanceId>
     <NotifyAbsenceRequest1:userOwner/>
     <NotifyAbsenceRequest1:roleOwner/>
-    <NotifyAbsenceRequest1:formUrl>/intalio/gi/apppath/AbsenceRequest/Forms/NotifyAbsenceRequest.gi/IntalioInternal/ServerLaunch.html</NotifyAbsenceRequest1:formUrl>
+    <NotifyAbsenceRequest1:formUrl>/everteam/gi/apppath/AbsenceRequest/Forms/NotifyAbsenceRequest.gi/IntalioInternal/ServerLaunch.html</NotifyAbsenceRequest1:formUrl>
     <NotifyAbsenceRequest1:dismissAction>
       <NotifyAbsenceRequest1:user></NotifyAbsenceRequest1:user>
       <NotifyAbsenceRequest1:role></NotifyAbsenceRequest1:role>
@@ -325,7 +325,7 @@
         <bpel:to>$RequestManagerDecision.root/ApproveAbsenceRequest1:taskMetaData/ApproveAbsenceRequest1:instanceId</bpel:to>
     </bpel:copy>
     <bpel:copy>
-        <bpel:from>"/intalio/ode/processes/AbsenceRequest/Processes/AbsenceRequest/Absence_Request/Absence_RequestimplicitPartner/WFmagic_FAliEIA4EeOyNLOFBEJoPg"</bpel:from>
+        <bpel:from>"/everteam/ode/processes/AbsenceRequest/Processes/AbsenceRequest/Absence_Request/Absence_RequestimplicitPartner/WFmagic_FAliEIA4EeOyNLOFBEJoPg"</bpel:from>
         <bpel:to>$RequestManagerDecision.root/ApproveAbsenceRequest1:taskMetaData/ApproveAbsenceRequest1:userProcessEndpoint</bpel:to>
     </bpel:copy>
     <bpel:copy>
@@ -343,7 +343,7 @@
         <bpel:to>$RequestManagerDecision.root/ApproveAbsenceRequest1:taskMetaData/ApproveAbsenceRequest1:instanceId</bpel:to>
     </bpel:copy>
     <bpel:copy>
-        <bpel:from>"/intalio/ode/processes/AbsenceRequest/Processes/AbsenceRequest/Absence_Request/Absence_RequestimplicitPartner/WFmagic_FAliEIA4EeOyNLOFBEJoPg"</bpel:from>
+        <bpel:from>"/everteam/ode/processes/AbsenceRequest/Processes/AbsenceRequest/Absence_Request/Absence_RequestimplicitPartner/WFmagic_FAliEIA4EeOyNLOFBEJoPg"</bpel:from>
         <bpel:to>$RequestManagerDecision.root/ApproveAbsenceRequest1:taskMetaData/ApproveAbsenceRequest1:userProcessEndpoint</bpel:to>
     </bpel:copy>
     <bpel:copy>

@@ -1051,7 +1051,7 @@
 	</wsdl:binding>
 	<wsdl:service name="TaskManagementServices">
 		<wsdl:port name="TaskManagementServicesSOAP" binding="tns:TaskManagementServicesSOAP">
-			<soap:address location="http://localhost:8080/intalio/ode/processes/TaskManagementServices"/>
+			<soap:address location="http://localhost:8080/everteam/ode/processes/TaskManagementServices"/>
 		</wsdl:port>
 	</wsdl:service>
 </wsdl:definitions>
