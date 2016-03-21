@@ -46,12 +46,12 @@
     </wsdl:binding>
     <wsdl:service name="Absence_RequestimplicitPartnerAndAbsence_RequestForPortTypeProcessPlkService">
         <wsdl:port name="Absence_Request_for_Absence_RequestimplicitPartnerPort" binding="this:Absence_RequestimplicitPartnerAndAbsence_RequestForPortTypeProcessPlkServiceBinding">
-            <soap:address location="http://localhost:8080/intalio/ode/processes/AbsenceRequest/Processes/AbsenceRequest/Absence_Request/Absence_RequestimplicitPartner/Absence_RequestimplicitPartnerAndAbsence_RequestForPortTypeProcessPlk"/>
+            <soap:address location="http://localhost:8080/everteam/ode/processes/AbsenceRequest/Processes/AbsenceRequest/Absence_Request/Absence_RequestimplicitPartner/Absence_RequestimplicitPartnerAndAbsence_RequestForPortTypeProcessPlk"/>
         </wsdl:port>
     </wsdl:service>
     <wsdl:service name="WFmagic_FAliEIA4EeOyNLOFBEJoPgService">
         <wsdl:port name="Absence_Request_for_Absence_RequestimplicitPartnerForThePortTypeProcessPort" binding="this:WFmagic_FAliEIA4EeOyNLOFBEJoPgServiceBinding">
-            <soap:address location="http://localhost:8080/intalio/ode/processes/AbsenceRequest/Processes/AbsenceRequest/Absence_Request/Absence_RequestimplicitPartner/WFmagic_FAliEIA4EeOyNLOFBEJoPg"/>
+            <soap:address location="http://localhost:8080/everteam/ode/processes/AbsenceRequest/Processes/AbsenceRequest/Absence_Request/Absence_RequestimplicitPartner/WFmagic_FAliEIA4EeOyNLOFBEJoPg"/>
         </wsdl:port>
     </wsdl:service>
 </wsdl:definitions>

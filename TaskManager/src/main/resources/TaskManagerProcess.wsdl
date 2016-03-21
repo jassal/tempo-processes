@@ -285,19 +285,19 @@
 	<wsdl:service name="UserBusinessProcessService">
 		<wsdl:port name="UserBusinessProcessPort"
 			binding="b4p:UserBusinessProcessBinding">
-			<soap:address location="http://localhost:8080/intalio/ode/processes/workflow/ib4p" />
+			<soap:address location="http://localhost:8080/everteam/ode/processes/workflow/ib4p" />
 		</wsdl:port>
 	</wsdl:service>
 
 	<wsdl:service name="UIFWService">
 		<wsdl:port name="UIFWPort" binding="b4p:UIFWBinding">
-			<soap:address location="http://localhost:8080/intalio/ode/processes/completeTask" />
+			<soap:address location="http://localhost:8080/everteam/ode/processes/completeTask" />
 		</wsdl:port>
 	</wsdl:service>
 
 	<wsdl:service name="TMPService">
 		<wsdl:port name="TMPPort" binding="b4p:TMPBinding">
-			<soap:address location="http://localhost:8080/intalio/ode/processes/TMP" />
+			<soap:address location="http://localhost:8080/everteam/ode/processes/TMP" />
 		</wsdl:port>
 	</wsdl:service>
 	

@@ -399,7 +399,7 @@ jsx3.lang.Package.definePackage(
             return;
         }        
         
-        document.location.href = "/intalio/workflow/script/empty.jsp";
+        document.location.href = "/everteam/workflow/script/empty.jsp";
         jsx3.log("complete succeeded.");
     };
 
@@ -787,7 +787,7 @@ jsx3.lang.Package.definePackage(
     
     attach.updateCDFNode = function(context) {
         var url = context.getAttribute("IntalioInternal_PayloadUrl");
-        var href = "<img src='/intalio/gi/files/images/remove.gif' data='"+url+"' border='0' onClick='Intalio.Internal.Attachments.removeAttachment(this);' />";
+        var href = "<img src='/everteam/gi/files/images/remove.gif' data='"+url+"' border='0' onClick='Intalio.Internal.Attachments.removeAttachment(this);' />";
         context.setAttribute("IntalioInternal_RemoveImage", href); 
         
         attach.setAttributeHref(url, context, "Title");
@@ -1410,7 +1410,7 @@ jsx3.lang.Package.definePackage(
                 
             document.location.href = fullUrl;
         } else {
-            document.location.href = "/intalio/workflow/script/empty.jsp";
+            document.location.href = "/everteam/workflow/script/empty.jsp";
         }        
     };    
     
@@ -1754,7 +1754,7 @@ jsx3.lang.Package.definePackage(
 			}
 		}
 		if(!matched) {
-			document.location.href = "/intalio/workflow/script/empty.jsp";
+			document.location.href = "/everteam/workflow/script/empty.jsp";
 		}
     };
     
@@ -2298,21 +2298,25 @@ jsx3.lang.Package.definePackage(
           request.subscribe(jsx3.net.Request.EVENT_ON_RESPONSE, onSuccess);
           request.subscribe(jsx3.net.Request.EVENT_ON_TIMEOUT, onTimeOut);
           
-          request.open("POST", "/intalio/gi/validation", true);
+          request.open("POST", "/everteam/gi/validation", true);
           request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8"); 
           request.send(message, tout);
       };
       
       com.getPath = function() {
           var giAppPath = "/gi/apppath/";
-          var giAppPathWithIntalioContext = "/intalio/gi/apppath/";
+          var giAppPathWithIntalioContext = "/everteam/gi/apppath/";
           var url = Intalio.Internal.Utilities.getFormUrl();
           var uri = new jsx3.net.URI(url);
           var path = uri.getPath();
           
-          if ((path.indexOf(giAppPath) == 0 || path.indexOf(giAppPathWithIntalioContext) == 0) && path.length >= giAppPath.length) {
-              return path.substr(giAppPath.length);
-          }
+          if (path.length >= giAppPath.length) {
+              if(path.indexOf(giAppPath) == 0){
+                return path.substr(giAppPath.length);
+              } else if(path.indexOf(giAppPathWithIntalioContext) == 0) {
+                return path.substr(giAppPathWithIntalioContext.length);
+              }
+           }
 
           return null;
       };
