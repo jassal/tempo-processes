@@ -142,6 +142,9 @@
 	<wsdl:message name="usersAndRoles">
 		<wsdl:part name="root" element="b4p:usersAndRoles" />
 	</wsdl:message>
+	<wsdl:message name="parallelAdhocTaskCompleted">
+		<wsdl:part name="root" element="b4p:parallelAdhocTaskCompleted" />
+	</wsdl:message>
 
 	<!-- Port Types -->
 	<wsdl:portType name="UserBusinessProcessPortType">
@@ -183,6 +186,9 @@
 	<wsdl:portType name="TMPPortType">
 		<wsdl:operation name="nextTaskReady">
 			<wsdl:input message="b4p:nextTaskReady" name="nextTaskReady" />
+		</wsdl:operation>
+		<wsdl:operation name="parallelAdhocTaskCompleted">
+			<wsdl:input message="b4p:parallelAdhocTaskCompleted" name="parallelAdhocTaskCompleted" />
 		</wsdl:operation>
 	</wsdl:portType>
 
@@ -275,6 +281,12 @@
 			transport="http://schemas.xmlsoap.org/soap/http" />
 		<wsdl:operation name="nextTaskReady">
 			<soap:operation soapAction="nextTaskReady" style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+		</wsdl:operation>
+		<wsdl:operation name="parallelAdhocTaskCompleted">
+			<soap:operation soapAction="parallelAdhocTaskCompleted" style="document" />
 			<wsdl:input>
 				<soap:body use="literal" />
 			</wsdl:input>
