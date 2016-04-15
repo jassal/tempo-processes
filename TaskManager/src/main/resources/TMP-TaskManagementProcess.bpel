@@ -353,7 +353,7 @@
               <bpel:from>$createTaskRequest.root/b4p:taskMetaData/b4p:formUrl</bpel:from>
               <bpel:to>$createTaskResponse.root/b4p:taskMetaData/b4p:formUrl</bpel:to>
             </bpel:copy>
-            <bpel:copy>
+            <bpel:copy ignoreMissingFromData="yes">
               <bpel:from>$createTaskRequest.root/b4p:taskMetaData/b4p:processId</bpel:from>
               <bpel:to>$createTaskResponse.root/b4p:taskMetaData/b4p:processId</bpel:to>
             </bpel:copy>
@@ -689,7 +689,7 @@
               <bpel:from>concat(b4px:create(), $ode:pid)</bpel:from>
               <bpel:to>$createTMSTaskRequest.createRequest/tns:task/tns:metadata/tns:taskId</bpel:to>
             </bpel:copy>
-            <bpel:copy>
+            <bpel:copy ignoreMissingFromData="yes">
               <bpel:from>$CreateTaskSingleActivityRequest.root/b4p:taskMetaData/b4p:processId</bpel:from>
               <bpel:to>$createTMSTaskRequest.createRequest/tns:task/tns:metadata/tns:processId</bpel:to>
             </bpel:copy>
@@ -763,7 +763,7 @@
         <bpel:from>$createTaskRequest.root/b4p:taskMetaData/b4p:description</bpel:from>
         <bpel:to>$createTMSTaskRequest.createRequest/tns:task/tns:metadata/tns:description</bpel:to>
       </bpel:copy>
-      <bpel:copy>
+      <bpel:copy ignoreMissingFromData="yes">
         <bpel:from>$createTaskRequest.root/b4p:taskMetaData/b4p:processId</bpel:from>
         <bpel:to>$createTMSTaskRequest.createRequest/tns:task/tns:metadata/tns:processId</bpel:to>
       </bpel:copy>
@@ -835,7 +835,7 @@
         <bpel:from>$createTaskRequest.root/b4p:taskInput</bpel:from>
         <bpel:to>$createTMSTaskRequest.createRequest/tns:task/tns:input</bpel:to>
       </bpel:copy>
-      <bpel:copy>
+      <bpel:copy ignoreMissingFromData="yes">
         <bpel:from>$createTaskRequest.root/b4p:taskMetaData/b4p:userProcessCompleteSOAPAction</bpel:from>
         <bpel:to>$createTMSTaskRequest.createRequest/tns:task/tns:metadata/tns:userProcessCompleteSOAPAction</bpel:to>
       </bpel:copy>
