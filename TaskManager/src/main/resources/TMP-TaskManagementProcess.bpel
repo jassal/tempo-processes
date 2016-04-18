@@ -687,19 +687,19 @@
             </bpel:copy>
             <bpel:copy>
               <bpel:from>concat(b4px:create(), $ode:pid)</bpel:from>
-              <bpel:to>$createTMSTaskRequest.createRequest/tns:task/tns:metadata/tns:taskId</bpel:to>
+              <bpel:to>$CreateTaskSingleActivityResponse.root/b4p:taskMetaData/b4p:taskId</bpel:to>
             </bpel:copy>
             <bpel:copy ignoreMissingFromData="yes">
               <bpel:from>$CreateTaskSingleActivityRequest.root/b4p:taskMetaData/b4p:processId</bpel:from>
-              <bpel:to>$createTMSTaskRequest.createRequest/tns:task/tns:metadata/tns:processId</bpel:to>
+              <bpel:to>$CreateTaskSingleActivityResponse.root/b4p:taskMetaData/b4p:processId</bpel:to>
             </bpel:copy>
             <bpel:copy>
               <bpel:from>$CreateTaskSingleActivityRequest.root/b4p:taskMetaData/b4p:formUrl</bpel:from>
-              <bpel:to>$createTMSTaskRequest.createRequest/tns:task/tns:metadata/tns:formUrl</bpel:to>
+              <bpel:to>$CreateTaskSingleActivityResponse.root/b4p:taskMetaData/b4p:formUrl</bpel:to>
             </bpel:copy>
             <bpel:copy>
               <bpel:from>if (boolean(normalize-space($CreateTaskSingleActivityRequest.root/b4p:taskMetaData/b4p:scheduledActions/b4p:deferActivation/b4p:until))) then ($CreateTaskSingleActivityRequest.root/b4p:taskMetaData/b4p:scheduledActions/b4p:deferActivation/b4p:until) else (if (boolean(normalize-space($CreateTaskSingleActivityRequest.root/b4p:taskMetaData/b4p:scheduledActions/b4p:deferActivation/b4p:for))) then ((current-dateTime() + xs:yearMonthDuration(xs:duration($CreateTaskSingleActivityRequest.root/b4p:taskMetaData/b4p:scheduledActions/b4p:deferActivation/b4p:for))) + xs:dayTimeDuration(xs:duration($CreateTaskSingleActivityRequest.root/b4p:taskMetaData/b4p:scheduledActions/b4p:deferActivation/b4p:for))) else (current-dateTime()))</bpel:from>
-              <bpel:to>$createTMSTaskRequest.createRequest/tns:task/tns:metadata/tns:creationDate</bpel:to>
+              <bpel:to>$CreateTaskSingleActivityResponse.root/b4p:taskMetaData/b4p:creationDate</bpel:to>
             </bpel:copy>
           </bpel:assign>
           <bpel:reply partnerLink="tMPAndUBPPlkVar" portType="b4p:UserBusinessProcessPortType" operation="createTaskSingleActivity" variable="CreateTaskSingleActivityResponse" bpmn:label="Create Task Single&#13;&#10;Activity" name="Create_Task_Single__Activity-2" bpmn:id="_4YwTQOXQEeWG7YrGV-y1wQ">
