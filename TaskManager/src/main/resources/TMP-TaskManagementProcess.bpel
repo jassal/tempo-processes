@@ -10,7 +10,6 @@
     <bpel:partnerLink name="tMPAndUBPPlkVar" partnerLinkType="diag:TMPAndUBP" initializePartnerRole="yes" myRole="TaskManagementProcess_for_UserBusinessProcessForUserBusinessProcessPort" partnerRole="UserBusinessProcess_for_TaskManagementProcessForUserProcessPort"/>
     <bpel:partnerLink name="taskManagementProcessAndTaskManagementSystemForPortTaskManagementServicesSOAPPlkVar" partnerLinkType="diag:TaskManagementProcessAndTaskManagementSystemForPortTaskManagementServicesSOAPPlk" initializePartnerRole="yes" partnerRole="TaskManagementSystem_for_TaskManagementProcess"/>
     <bpel:partnerLink name="taskManagementProcessAndPreviousProcessTaskManagerForTMPPortPlkVar" partnerLinkType="diag:TaskManagementProcessAndPreviousProcessTaskManagerForTMPPortPlk" initializePartnerRole="yes" partnerRole="PreviousProcessTaskManager_for_TaskManagementProcess"/>
-    <bpel:partnerLink name="taskManagementProcessAndUserBusinessProcessForUserProcessPortPlkVar" partnerLinkType="diag:TaskManagementProcessAndUserBusinessProcessForUserProcessPortPlk" initializePartnerRole="yes" partnerRole="UserBusinessProcess_for_TaskManagementProcess"/>
     <bpel:partnerLink name="taskManagementProcessAndUIFWForUIFWPortPlkVar" partnerLinkType="diag:TaskManagementProcessAndUIFWForUIFWPortPlk" myRole="TaskManagementProcess_for_UIFW"/>
     <bpel:partnerLink name="taskManagementProcessimplicitPartnerAndTaskManagementProcessForTMPPortPlkVar" partnerLinkType="diag:TaskManagementProcessimplicitPartnerAndTaskManagementProcessForTMPPortPlk" initializePartnerRole="yes" myRole="TaskManagementProcess_for_TaskManagementProcessimplicitPartner" partnerRole="TaskManagementProcessimplicitPartner_for_TaskManagementProcess"/>
     <bpel:partnerLink name="taskManagementProcessAndNextTaskManagerForTMPPortPlkVar" partnerLinkType="diag:TaskManagementProcessAndNextTaskManagerForTMPPortPlk" myRole="TaskManagementProcess_for_NextTaskManager"/>
@@ -1196,7 +1195,7 @@
                       <bpel:to>$userBusinessProcess1CreateTaskSingleActivityResponseMsg.root/b4p:taskMetaData/b4p:userProcessCompleteSOAPAction</bpel:to>
                     </bpel:copy>
                   </bpel:assign>
-                  <bpel:invoke partnerLink="taskManagementProcessAndUserBusinessProcessForUserProcessPortPlkVar" portType="UserBusinessProcess1:userProcessPortType" operation="notifyTaskCompletionSingleActivity" inputVariable="userBusinessProcess1CreateTaskSingleActivityResponseMsg" bpmn:label="Notify Process&#13;&#10;Deadline Reached&#13;&#10;(Single Activity)" name="Notify_Process__Deadline_Reached___Single_Activity_-1" bpmn:id="_zZnlYPZbEeWLSY7FStN1pA"></bpel:invoke>
+                  <bpel:invoke partnerLink="tMPAndUBPPlkVar" portType="UserBusinessProcess1:userProcessPortType" operation="notifyTaskCompletionSingleActivity" inputVariable="userBusinessProcess1CreateTaskSingleActivityResponseMsg" bpmn:label="Notify Process&#13;&#10;Deadline Reached&#13;&#10;(Single Activity)" name="Notify_Process__Deadline_Reached___Single_Activity_-1" bpmn:id="_zZnlYPZbEeWLSY7FStN1pA"></bpel:invoke>
                 </bpel:sequence>
                 <bpel:else>
                   <bpel:sequence>
@@ -3098,7 +3097,7 @@
                                               <bpel:to>$userBusinessProcess1CreateTaskSingleActivityResponse1Msg.root/b4p:taskMetaData/b4p:globalAttachments</bpel:to>
                                             </bpel:copy>
                                           </bpel:assign>
-                                          <bpel:invoke partnerLink="taskManagementProcessAndUserBusinessProcessForUserProcessPortPlkVar" portType="UserBusinessProcess1:userProcessPortType" operation="notifyTaskCompletionSingleActivity" inputVariable="userBusinessProcess1CreateTaskSingleActivityResponse1Msg" bpmn:label="notify Task&#13;&#10;Completion Single&#13;&#10;Activity&#13;&#10;" name="notify_Task__Completion_Single__Activity-1" bpmn:id="_Snpj8PY2EeW2GY9-FhCCxw"></bpel:invoke>
+                                          <bpel:invoke partnerLink="tMPAndUBPPlkVar" portType="UserBusinessProcess1:userProcessPortType" operation="notifyTaskCompletionSingleActivity" inputVariable="userBusinessProcess1CreateTaskSingleActivityResponse1Msg" bpmn:label="notify Task&#13;&#10;Completion Single&#13;&#10;Activity&#13;&#10;" name="notify_Task__Completion_Single__Activity-1" bpmn:id="_Snpj8PY2EeW2GY9-FhCCxw"></bpel:invoke>
                                           <bpel:assign bpmn:label="Prepare response&#13;&#10;to UIFW(Single&#13;&#10;Activity)" name="Prepare_response__to_UIFW_Single__Activity_" bpmn:id="_a9ueEPY2EeW2GY9-FhCCxw">
                                             <bpel:copy>
                                               <bpel:from>"OK"</bpel:from>

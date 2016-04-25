@@ -19,9 +19,6 @@
   <dd:invoke partnerLink="taskManagementProcessAndPreviousProcessTaskManagerForTMPPortPlkVar">
     <dd:service name="b4p:TMPService" port="TMPPort"></dd:service>
   </dd:invoke>
-  <dd:invoke partnerLink="taskManagementProcessAndUserBusinessProcessForUserProcessPortPlkVar">
-    <dd:service name="UserBusinessProcess1:UserBusinessProcessesServices" port="userProcessPort"></dd:service>
-  </dd:invoke>
   <dd:provide partnerLink="taskManagementProcessAndUIFWForUIFWPortPlkVar">
     <dd:service name="b4p:UIFWService" port="UIFWPort"></dd:service>
   </dd:provide>
