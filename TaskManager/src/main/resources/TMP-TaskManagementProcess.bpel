@@ -1,13 +1,15 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<bpel:process xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:pnlk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ode="http://www.apache.org/ode/type/extension" xmlns:tns="http://www.intalio.com/BPMS/Workflow/TaskManagementServices-20051109/" xmlns:diag="http://bpms.everteam.com/TMP" xmlns:TaskManagementProcessimplicitPartner="http://bpms.everteam.com/TMP/TaskManagementProcessimplicitPartner" xmlns:b4px="java:org.intalio.tempo.workflow.processes.xpath.UID" xmlns:UIFW="http://bpms.everteam.com/TMP/UIFW" xmlns:TaskManagementSystem="http://bpms.everteam.com/TMP/TaskManagementSystem" xmlns:PreviousProcessTaskManager="http://bpms.everteam.com/TMP/PreviousProcessTaskManager" xmlns:UserBusinessProcess1="http://www.intalio.com/bpms/ubp" xmlns:this="http://example.com/TMP/TaskManagementProcess" xmlns:b4p="http://www.intalio.com/bpms/workflow/ib4p_20051115" xmlns:UserBusinessProcess="http://bpms.everteam.com/TMP/UserBusinessProcess" xmlns:NextTaskManager="http://bpms.everteam.com/TMP/NextTaskManager" xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:bpmn="http://www.intalio.com/bpms" xmlns:atomic="http://ode.apache.org/atomicScope" queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0" bpmn:label="TaskManagementProcess" name="TaskManagementProcess" bpmn:id="_opUVQKdvEdyId4P63ChZuw" targetNamespace="http://example.com/TMP/TaskManagementProcess">
+<bpel:process xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:pnlk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ode="http://www.apache.org/ode/type/extension" xmlns:AdhocTaskManagement1="http://www.apache.org/ode/pmapi" xmlns:AdhocTaskManagement="http://bpms.everteam.com/TMP/AdhocTaskManagement" xmlns:tns="http://www.intalio.com/BPMS/Workflow/TaskManagementServices-20051109/" xmlns:diag="http://bpms.everteam.com/TMP" xmlns:TaskManagementProcessimplicitPartner="http://bpms.everteam.com/TMP/TaskManagementProcessimplicitPartner" xmlns:pmapi="http://www.apache.org/ode/pmapi/types/2006/08/02/" xmlns:b4px="java:org.intalio.tempo.workflow.processes.xpath.UID" xmlns:UIFW="http://bpms.everteam.com/TMP/UIFW" xmlns:TaskManagementSystem="http://bpms.everteam.com/TMP/TaskManagementSystem" xmlns:PreviousProcessTaskManager="http://bpms.everteam.com/TMP/PreviousProcessTaskManager" xmlns:UserBusinessProcess1="http://www.intalio.com/bpms/ubp" xmlns:b4p="http://www.intalio.com/bpms/workflow/ib4p_20051115" xmlns:this="http://example.com/TMP/TaskManagementProcess" xmlns:UserBusinessProcess="http://bpms.everteam.com/TMP/UserBusinessProcess" xmlns:NextTaskManager="http://bpms.everteam.com/TMP/NextTaskManager" xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:bpmn="http://www.intalio.com/bpms" xmlns:atomic="http://ode.apache.org/atomicScope" queryLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath2.0" bpmn:label="TaskManagementProcess" name="TaskManagementProcess" bpmn:id="_opUVQKdvEdyId4P63ChZuw" targetNamespace="http://example.com/TMP/TaskManagementProcess">
   <bpel:import namespace="http://example.com/TMP/TaskManagementProcess" location="TMP-TaskManagementProcess.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
   <bpel:import namespace="http://bpms.everteam.com/TMP" location="TMP.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+  <bpel:import namespace="http://www.apache.org/ode/pmapi" location="AdhocTaskManagement.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
   <bpel:import namespace="http://www.intalio.com/BPMS/Workflow/TaskManagementServices-20051109/" location="TaskManagementSystem.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
   <bpel:import namespace="http://www.intalio.com/bpms/ubp" location="UserBusinessProcess.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
   <bpel:import namespace="http://www.intalio.com/bpms/workflow/ib4p_20051115" location="TaskManagerProcess.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
   <bpel:import namespace="http://www.intalio.com/bpms/workflow/ib4p_20051115" location="b4p.xsd" importType="http://www.w3.org/2001/XMLSchema"></bpel:import>
   <bpel:partnerLinks>
     <bpel:partnerLink name="tMPAndUBPPlkVar" partnerLinkType="diag:TMPAndUBP" initializePartnerRole="yes" myRole="TaskManagementProcess_for_UserBusinessProcessForUserBusinessProcessPort" partnerRole="UserBusinessProcess_for_TaskManagementProcessForUserProcessPort"/>
+    <bpel:partnerLink name="taskManagementProcessAndAdhocTaskManagementForAdhocTaskManagementPortPlkVar" partnerLinkType="diag:TaskManagementProcessAndAdhocTaskManagementForAdhocTaskManagementPortPlk" initializePartnerRole="yes" partnerRole="AdhocTaskManagement_for_TaskManagementProcess"/>
     <bpel:partnerLink name="taskManagementProcessAndTaskManagementSystemForPortTaskManagementServicesSOAPPlkVar" partnerLinkType="diag:TaskManagementProcessAndTaskManagementSystemForPortTaskManagementServicesSOAPPlk" initializePartnerRole="yes" partnerRole="TaskManagementSystem_for_TaskManagementProcess"/>
     <bpel:partnerLink name="taskManagementProcessAndPreviousProcessTaskManagerForTMPPortPlkVar" partnerLinkType="diag:TaskManagementProcessAndPreviousProcessTaskManagerForTMPPortPlk" initializePartnerRole="yes" partnerRole="PreviousProcessTaskManager_for_TaskManagementProcess"/>
     <bpel:partnerLink name="taskManagementProcessAndUIFWForUIFWPortPlkVar" partnerLinkType="diag:TaskManagementProcessAndUIFWForUIFWPortPlk" myRole="TaskManagementProcess_for_UIFW"/>
@@ -33,6 +35,16 @@
     <bpel:variable name="CreateTaskSingleActivityResponse" messageType="b4p:createTaskSingleActivityResponse"/>
     <bpel:variable name="adhocDataVar" type="b4p:adhocDataVar"/>
     <bpel:variable name="responseSent" type="xs:boolean"/>
+    <bpel:variable name="LinkTaskWithUBPRequest" messageType="AdhocTaskManagement1:linkPATaskWithUBPInfoInput"/>
+    <bpel:variable name="LinkTaskWithUBPResponse" messageType="AdhocTaskManagement1:linkPATaskWithUBPInfoOutput"/>
+    <bpel:variable name="GetTaskInfoRequest" messageType="AdhocTaskManagement1:getUBPInfoForPATaskInput"/>
+    <bpel:variable name="GetTaskInfoResponse" messageType="AdhocTaskManagement1:getUBPInfoForPATaskOutput"/>
+    <bpel:variable name="AddAdhocTaskRequestVarToUBPRequest" messageType="AdhocTaskManagement1:addAdhocTaskVariableToUBPInput"/>
+    <bpel:variable name="AddAdhocTaskRequestVarToUBPResponse" messageType="AdhocTaskManagement1:addAdhocTaskVariableToUBPOutput"/>
+    <bpel:variable name="AddAdhocTaskResponseVarToUBPRequest" messageType="AdhocTaskManagement1:addAdhocTaskVariableToUBPInput"/>
+    <bpel:variable name="AddAdhocTaskResponseVarToUBPResponse" messageType="AdhocTaskManagement1:addAdhocTaskVariableToUBPOutput"/>
+    <bpel:variable name="SendAdhocTaskEventToUBPRequest" messageType="AdhocTaskManagement1:sendAdhocTaskEventToUBPInput"/>
+    <bpel:variable name="SendAdhocTaskEventToUBPResponse" messageType="AdhocTaskManagement1:sendAdhocTaskEventToUBPOutput"/>
   </bpel:variables>
   <bpel:sequence>
     <bpel:pick createInstance="yes" bpmn:label="Exclusive_Event-Based_Gateway" name="Exclusive_Event-Based_Gateway" bpmn:id="_x9SrsOXQEeWG7YrGV-y1wQ">
@@ -229,6 +241,9 @@
                 <bpel:literal>
 <b4p:createTaskSingleActivityResponse>
   <b4p:taskMetaData>
+    <b4p:activityInfo></b4p:activityInfo>
+    <b4p:taskRequestVarUBP></b4p:taskRequestVarUBP>
+    <b4p:taskResponseVarUBP></b4p:taskResponseVarUBP>
     <b4p:taskId></b4p:taskId>
     <b4p:taskState></b4p:taskState>
     <b4p:taskType></b4p:taskType>
@@ -342,6 +357,63 @@
               </bpel:from>
               <bpel:to>$responseSent</bpel:to>
             </bpel:copy>
+            <bpel:copy bpmn:label="$LinkTaskWithUBPRequest">
+              <bpel:from>
+                <bpel:literal>
+<AdhocTaskManagement1:linkPATaskWithUBPInfo>
+  <taskId></taskId>
+  <ubpInstanceId></ubpInstanceId>
+  <tmpInstanceId></tmpInstanceId>
+  <activityInfo></activityInfo>
+  <taskRequestVar></taskRequestVar>
+  <taskResponseVar></taskResponseVar>
+</AdhocTaskManagement1:linkPATaskWithUBPInfo></bpel:literal>
+              </bpel:from>
+              <bpel:to>$LinkTaskWithUBPRequest.parameters</bpel:to>
+            </bpel:copy>
+            <bpel:copy bpmn:label="$GetTaskInfoRequest">
+              <bpel:from>
+                <bpel:literal>
+<AdhocTaskManagement1:getUBPInfoForPATask>
+  <taskId></taskId>
+</AdhocTaskManagement1:getUBPInfoForPATask></bpel:literal>
+              </bpel:from>
+              <bpel:to>$GetTaskInfoRequest.parameters</bpel:to>
+            </bpel:copy>
+            <bpel:copy bpmn:label="$AddAdhocTaskRequestVarToUBPRequest">
+              <bpel:from>
+                <bpel:literal>
+<AdhocTaskManagement1:addAdhocTaskVariableToUBP>
+  <instanceId></instanceId>
+  <variableName></variableName>
+  <variableValue></variableValue>
+</AdhocTaskManagement1:addAdhocTaskVariableToUBP></bpel:literal>
+              </bpel:from>
+              <bpel:to>$AddAdhocTaskRequestVarToUBPRequest.parameters</bpel:to>
+            </bpel:copy>
+            <bpel:copy bpmn:label="$AddAdhocTaskResponseVarToUBPRequest">
+              <bpel:from>
+                <bpel:literal>
+<AdhocTaskManagement1:addAdhocTaskVariableToUBP>
+  <instanceId></instanceId>
+  <variableName></variableName>
+  <variableValue></variableValue>
+</AdhocTaskManagement1:addAdhocTaskVariableToUBP></bpel:literal>
+              </bpel:from>
+              <bpel:to>$AddAdhocTaskResponseVarToUBPRequest.parameters</bpel:to>
+            </bpel:copy>
+            <bpel:copy bpmn:label="$SendAdhocTaskEventToUBPRequest">
+              <bpel:from>
+                <bpel:literal>
+<AdhocTaskManagement1:sendAdhocTaskEventToUBP>
+  <adhocTaskEventDetails></adhocTaskEventDetails>
+  <instanceId></instanceId>
+  <adhocTaskId></adhocTaskId>
+  <parentTaskId></parentTaskId>
+</AdhocTaskManagement1:sendAdhocTaskEventToUBP></bpel:literal>
+              </bpel:from>
+              <bpel:to>$SendAdhocTaskEventToUBPRequest.parameters</bpel:to>
+            </bpel:copy>
           </bpel:assign>
           <bpel:assign bpmn:label="Create Task" name="Create_Task-1" bpmn:id="_kh8I0KdyEdyId4P63ChZuw">
             <bpel:copy>
@@ -352,7 +424,7 @@
               <bpel:from>$createTaskRequest.root/b4p:taskMetaData/b4p:formUrl</bpel:from>
               <bpel:to>$createTaskResponse.root/b4p:taskMetaData/b4p:formUrl</bpel:to>
             </bpel:copy>
-            <bpel:copy ignoreMissingFromData="yes">
+            <bpel:copy ignoreUninitializedFromVariable="yes" ignoreMissingFromData="yes">
               <bpel:from>$createTaskRequest.root/b4p:taskMetaData/b4p:processId</bpel:from>
               <bpel:to>$createTaskResponse.root/b4p:taskMetaData/b4p:processId</bpel:to>
             </bpel:copy>
@@ -561,6 +633,9 @@
                 <bpel:literal>
 <b4p:createTaskSingleActivityResponse>
   <b4p:taskMetaData>
+    <b4p:activityInfo></b4p:activityInfo>
+    <b4p:taskRequestVarUBP></b4p:taskRequestVarUBP>
+    <b4p:taskResponseVarUBP></b4p:taskResponseVarUBP>
     <b4p:taskId></b4p:taskId>
     <b4p:taskState></b4p:taskState>
     <b4p:taskType></b4p:taskType>
@@ -674,6 +749,63 @@
               </bpel:from>
               <bpel:to>$responseSent</bpel:to>
             </bpel:copy>
+            <bpel:copy bpmn:label="$LinkTaskWithUBPRequest">
+              <bpel:from>
+                <bpel:literal>
+<AdhocTaskManagement1:linkPATaskWithUBPInfo>
+  <taskId></taskId>
+  <ubpInstanceId></ubpInstanceId>
+  <tmpInstanceId></tmpInstanceId>
+  <activityInfo></activityInfo>
+  <taskRequestVar></taskRequestVar>
+  <taskResponseVar></taskResponseVar>
+</AdhocTaskManagement1:linkPATaskWithUBPInfo></bpel:literal>
+              </bpel:from>
+              <bpel:to>$LinkTaskWithUBPRequest.parameters</bpel:to>
+            </bpel:copy>
+            <bpel:copy bpmn:label="$GetTaskInfoRequest">
+              <bpel:from>
+                <bpel:literal>
+<AdhocTaskManagement1:getUBPInfoForPATask>
+  <taskId></taskId>
+</AdhocTaskManagement1:getUBPInfoForPATask></bpel:literal>
+              </bpel:from>
+              <bpel:to>$GetTaskInfoRequest.parameters</bpel:to>
+            </bpel:copy>
+            <bpel:copy bpmn:label="$AddAdhocTaskRequestVarToUBPRequest">
+              <bpel:from>
+                <bpel:literal>
+<AdhocTaskManagement1:addAdhocTaskVariableToUBP>
+  <instanceId></instanceId>
+  <variableName></variableName>
+  <variableValue></variableValue>
+</AdhocTaskManagement1:addAdhocTaskVariableToUBP></bpel:literal>
+              </bpel:from>
+              <bpel:to>$AddAdhocTaskRequestVarToUBPRequest.parameters</bpel:to>
+            </bpel:copy>
+            <bpel:copy bpmn:label="$AddAdhocTaskResponseVarToUBPRequest">
+              <bpel:from>
+                <bpel:literal>
+<AdhocTaskManagement1:addAdhocTaskVariableToUBP>
+  <instanceId></instanceId>
+  <variableName></variableName>
+  <variableValue></variableValue>
+</AdhocTaskManagement1:addAdhocTaskVariableToUBP></bpel:literal>
+              </bpel:from>
+              <bpel:to>$AddAdhocTaskResponseVarToUBPRequest.parameters</bpel:to>
+            </bpel:copy>
+            <bpel:copy bpmn:label="$SendAdhocTaskEventToUBPRequest">
+              <bpel:from>
+                <bpel:literal>
+<AdhocTaskManagement1:sendAdhocTaskEventToUBP>
+  <adhocTaskEventDetails></adhocTaskEventDetails>
+  <instanceId></instanceId>
+  <adhocTaskId></adhocTaskId>
+  <parentTaskId></parentTaskId>
+</AdhocTaskManagement1:sendAdhocTaskEventToUBP></bpel:literal>
+              </bpel:from>
+              <bpel:to>$SendAdhocTaskEventToUBPRequest.parameters</bpel:to>
+            </bpel:copy>
           </bpel:assign>
           <bpel:assign bpmn:label="Create Task Single&#13;&#10;Activity" name="Create_Task_Single__Activity-1" bpmn:id="_4YwTQOXQEeWG7YrGV-y1wQ">
             <bpel:copy>
@@ -688,7 +820,7 @@
               <bpel:from>concat(b4px:create(), $ode:pid)</bpel:from>
               <bpel:to>$CreateTaskSingleActivityResponse.root/b4p:taskMetaData/b4p:taskId</bpel:to>
             </bpel:copy>
-            <bpel:copy ignoreMissingFromData="yes">
+            <bpel:copy ignoreUninitializedFromVariable="yes" ignoreMissingFromData="yes">
               <bpel:from>$CreateTaskSingleActivityRequest.root/b4p:taskMetaData/b4p:processId</bpel:from>
               <bpel:to>$CreateTaskSingleActivityResponse.root/b4p:taskMetaData/b4p:processId</bpel:to>
             </bpel:copy>
@@ -733,6 +865,109 @@
       </bpel:copy>
     </bpel:assign>
     <bpel:if>
+      <bpel:condition>$adhocDataVar/b4p:isAdhocTask = "true"</bpel:condition>
+      <bpel:sequence>
+        <bpel:assign bpmn:label="get task info" name="get_task_info" bpmn:id="_WDrhwAw2EeaJXvIkfqvwtw">
+          <bpel:copy>
+            <bpel:from>$adhocDataVar/b4p:associatedTaskID</bpel:from>
+            <bpel:to>$GetTaskInfoRequest.parameters/taskId</bpel:to>
+          </bpel:copy>
+        </bpel:assign>
+        <bpel:invoke partnerLink="taskManagementProcessAndAdhocTaskManagementForAdhocTaskManagementPortPlkVar" portType="AdhocTaskManagement1:AdhocTaskManagementPortType" operation="getUBPInfoForPATask" inputVariable="GetTaskInfoRequest" outputVariable="GetTaskInfoResponse" bpmn:label="get task info" name="get_task_info-1" bpmn:id="_WDrhwAw2EeaJXvIkfqvwtw"></bpel:invoke>
+        <bpel:flow bpmn:label="Parallel_Gateway" name="Parallel_Gateway" bpmn:id="_siawcAFFEeaucMvW1WrsLw">
+          <bpel:sequence>
+            <bpel:assign bpmn:label="add createTask request Adhoc Task Variable To UBP" name="add_createTask_request_Adhoc_Task_Variable_To_UBP" bpmn:id="_uYI78AFFEeaucMvW1WrsLw">
+              <bpel:copy>
+                <bpel:from>$createTaskRequest.root/b4p:taskMetaData/b4p:instanceId</bpel:from>
+                <bpel:to>$AddAdhocTaskRequestVarToUBPRequest.parameters/instanceId</bpel:to>
+              </bpel:copy>
+              <bpel:copy>
+                <bpel:from>concat("aha", $ode:pid, "_", $GetTaskInfoResponse.parameters/taskUBPLinked-info/pmapi:taskRequestVarName)</bpel:from>
+                <bpel:to>$AddAdhocTaskRequestVarToUBPRequest.parameters/variableName</bpel:to>
+              </bpel:copy>
+              <bpel:copy>
+                <bpel:from>$createTaskRequest.root</bpel:from>
+                <bpel:to>$AddAdhocTaskRequestVarToUBPRequest.parameters/variableValue</bpel:to>
+              </bpel:copy>
+            </bpel:assign>
+            <bpel:invoke partnerLink="taskManagementProcessAndAdhocTaskManagementForAdhocTaskManagementPortPlkVar" portType="AdhocTaskManagement1:AdhocTaskManagementPortType" operation="addAdhocTaskVariableToUBP" inputVariable="AddAdhocTaskRequestVarToUBPRequest" outputVariable="AddAdhocTaskRequestVarToUBPResponse" bpmn:label="add createTask request Adhoc Task Variable To UBP" name="add_createTask_request_Adhoc_Task_Variable_To_UBP-1" bpmn:id="_uYI78AFFEeaucMvW1WrsLw"></bpel:invoke>
+          </bpel:sequence>
+          <bpel:sequence>
+            <bpel:assign bpmn:label="add createTask response Adhoc Task Variable To UBP" name="add_createTask_response_Adhoc_Task_Variable_To_UBP" bpmn:id="_uz2AgAFFEeaucMvW1WrsLw">
+              <bpel:copy>
+                <bpel:from>$createTaskRequest.root/b4p:taskMetaData/b4p:instanceId</bpel:from>
+                <bpel:to>$AddAdhocTaskResponseVarToUBPRequest.parameters/instanceId</bpel:to>
+              </bpel:copy>
+              <bpel:copy>
+                <bpel:from>concat("aha", $ode:pid, "_", $GetTaskInfoResponse.parameters/taskUBPLinked-info/pmapi:taskResponseVarName)</bpel:from>
+                <bpel:to>$AddAdhocTaskResponseVarToUBPRequest.parameters/variableName</bpel:to>
+              </bpel:copy>
+              <bpel:copy>
+                <bpel:from>$createTaskResponse.root</bpel:from>
+                <bpel:to>$AddAdhocTaskResponseVarToUBPRequest.parameters/variableValue</bpel:to>
+              </bpel:copy>
+            </bpel:assign>
+            <bpel:invoke partnerLink="taskManagementProcessAndAdhocTaskManagementForAdhocTaskManagementPortPlkVar" portType="AdhocTaskManagement1:AdhocTaskManagementPortType" operation="addAdhocTaskVariableToUBP" inputVariable="AddAdhocTaskResponseVarToUBPRequest" outputVariable="AddAdhocTaskResponseVarToUBPResponse" bpmn:label="add createTask response Adhoc Task Variable To UBP" name="add_createTask_response_Adhoc_Task_Variable_To_UBP-1" bpmn:id="_uz2AgAFFEeaucMvW1WrsLw"></bpel:invoke>
+          </bpel:sequence>
+        </bpel:flow>
+        <bpel:assign bpmn:label="send Adhoc Task Event To UBP" name="send_Adhoc_Task_Event_To_UBP" bpmn:id="_UvLn8AFJEeaucMvW1WrsLw">
+          <bpel:copy>
+            <bpel:from>$GetTaskInfoResponse.parameters/taskUBPLinked-info/pmapi:activityInfo</bpel:from>
+            <bpel:to>$SendAdhocTaskEventToUBPRequest.parameters/adhocTaskEventDetails</bpel:to>
+          </bpel:copy>
+          <bpel:copy>
+            <bpel:from>$createTaskRequest.root/b4p:taskMetaData/b4p:instanceId</bpel:from>
+            <bpel:to>$SendAdhocTaskEventToUBPRequest.parameters/instanceId</bpel:to>
+          </bpel:copy>
+          <bpel:copy>
+            <bpel:from>$taskId</bpel:from>
+            <bpel:to>$SendAdhocTaskEventToUBPRequest.parameters/adhocTaskId</bpel:to>
+          </bpel:copy>
+          <bpel:copy>
+            <bpel:from>$adhocDataVar/b4p:associatedTaskID</bpel:from>
+            <bpel:to>$SendAdhocTaskEventToUBPRequest.parameters/parentTaskId</bpel:to>
+          </bpel:copy>
+        </bpel:assign>
+        <bpel:invoke partnerLink="taskManagementProcessAndAdhocTaskManagementForAdhocTaskManagementPortPlkVar" portType="AdhocTaskManagement1:AdhocTaskManagementPortType" operation="sendAdhocTaskEventToUBP" inputVariable="SendAdhocTaskEventToUBPRequest" outputVariable="SendAdhocTaskEventToUBPResponse" bpmn:label="send Adhoc Task Event To UBP" name="send_Adhoc_Task_Event_To_UBP-1" bpmn:id="_UvLn8AFJEeaucMvW1WrsLw"></bpel:invoke>
+      </bpel:sequence>
+      <bpel:else>
+        <bpel:sequence>
+          <bpel:assign bpmn:label="link task with UBP" name="link_task_with_UBP" bpmn:id="_lC1eIAw1Eea-QqjAf1M8Bw">
+            <bpel:copy>
+              <bpel:from>$taskId</bpel:from>
+              <bpel:to>$LinkTaskWithUBPRequest.parameters/taskId</bpel:to>
+            </bpel:copy>
+            <bpel:copy>
+              <bpel:from>$createTaskRequest.root/b4p:taskMetaData/b4p:instanceId</bpel:from>
+              <bpel:to>$LinkTaskWithUBPRequest.parameters/ubpInstanceId</bpel:to>
+            </bpel:copy>
+            <bpel:copy>
+              <bpel:from>$ode:pid</bpel:from>
+              <bpel:to>$LinkTaskWithUBPRequest.parameters/tmpInstanceId</bpel:to>
+            </bpel:copy>
+            <bpel:copy>
+              <bpel:from>$createTaskRequest.root/b4p:taskMetaData/b4p:activityInfo</bpel:from>
+              <bpel:to>$LinkTaskWithUBPRequest.parameters/activityInfo</bpel:to>
+            </bpel:copy>
+            <bpel:copy>
+              <bpel:from>$createTaskRequest.root/b4p:taskMetaData/b4p:taskRequestVarUBP</bpel:from>
+              <bpel:to>$LinkTaskWithUBPRequest.parameters/taskRequestVar</bpel:to>
+            </bpel:copy>
+            <bpel:copy>
+              <bpel:from>$createTaskRequest.root/b4p:taskMetaData/b4p:taskResponseVarUBP</bpel:from>
+              <bpel:to>$LinkTaskWithUBPRequest.parameters/taskResponseVar</bpel:to>
+            </bpel:copy>
+          </bpel:assign>
+          <bpel:invoke partnerLink="taskManagementProcessAndAdhocTaskManagementForAdhocTaskManagementPortPlkVar" portType="AdhocTaskManagement1:AdhocTaskManagementPortType" operation="linkPATaskWithUBPInfo" inputVariable="LinkTaskWithUBPRequest" outputVariable="LinkTaskWithUBPResponse" bpmn:label="link task with UBP" name="link_task_with_UBP-1" bpmn:id="_lC1eIAw1Eea-QqjAf1M8Bw"></bpel:invoke>
+        </bpel:sequence>
+      </bpel:else>
+    </bpel:if>
+    <bpel:empty bpmn:label="Exclusive_Data-Based_Gateway" name="Exclusive_Data-Based_Gateway-1" bpmn:id="_uk-I4AIHEeafyJxIhaL8-g">
+      <bpel:links>
+        <bpel:targets></bpel:targets>
+      </bpel:links>
+    </bpel:empty>
+    <bpel:if>
       <bpel:condition>boolean(normalize-space($createTaskRequest.root/b4p:taskMetaData/b4p:scheduledActions/b4p:deferActivation/b4p:until))</bpel:condition>
       <bpel:sequence>
         <bpel:wait bpmn:label="defer Activation until a date" name="defer_Activation_until_a_date" bpmn:id="_OjQXsLD5Edy6MtvbqSLrQw">
@@ -748,7 +983,7 @@
         </bpel:sequence>
       </bpel:elseif>
     </bpel:if>
-    <bpel:empty bpmn:label="Exclusive_Data-Based_Gateway" name="Exclusive_Data-Based_Gateway-1" bpmn:id="_QOOEsLD5Edy6MtvbqSLrQw">
+    <bpel:empty bpmn:label="Exclusive_Data-Based_Gateway" name="Exclusive_Data-Based_Gateway-2" bpmn:id="_QOOEsLD5Edy6MtvbqSLrQw">
       <bpel:links>
         <bpel:targets></bpel:targets>
       </bpel:links>
@@ -758,11 +993,11 @@
         <bpel:from>"activity"</bpel:from>
         <bpel:to>$createTMSTaskRequest.createRequest/tns:task/tns:metadata/tns:taskType</bpel:to>
       </bpel:copy>
-      <bpel:copy>
+      <bpel:copy ignoreUninitializedFromVariable="yes" ignoreMissingFromData="yes">
         <bpel:from>$createTaskRequest.root/b4p:taskMetaData/b4p:description</bpel:from>
         <bpel:to>$createTMSTaskRequest.createRequest/tns:task/tns:metadata/tns:description</bpel:to>
       </bpel:copy>
-      <bpel:copy ignoreMissingFromData="yes">
+      <bpel:copy ignoreUninitializedFromVariable="yes" ignoreMissingFromData="yes">
         <bpel:from>$createTaskRequest.root/b4p:taskMetaData/b4p:processId</bpel:from>
         <bpel:to>$createTMSTaskRequest.createRequest/tns:task/tns:metadata/tns:processId</bpel:to>
       </bpel:copy>
@@ -801,7 +1036,7 @@
         </bpel:sequence>
       </bpel:elseif>
     </bpel:if>
-    <bpel:empty bpmn:label="Exclusive_Data-Based_Gateway" name="Exclusive_Data-Based_Gateway-2" bpmn:id="_SsT24MMEEdyCWZdoTEFyaQ">
+    <bpel:empty bpmn:label="Exclusive_Data-Based_Gateway" name="Exclusive_Data-Based_Gateway-3" bpmn:id="_SsT24MMEEdyCWZdoTEFyaQ">
       <bpel:links>
         <bpel:targets></bpel:targets>
       </bpel:links>
@@ -834,7 +1069,7 @@
         <bpel:from>$createTaskRequest.root/b4p:taskInput</bpel:from>
         <bpel:to>$createTMSTaskRequest.createRequest/tns:task/tns:input</bpel:to>
       </bpel:copy>
-      <bpel:copy ignoreMissingFromData="yes">
+      <bpel:copy ignoreUninitializedFromVariable="yes" ignoreMissingFromData="yes">
         <bpel:from>$createTaskRequest.root/b4p:taskMetaData/b4p:userProcessCompleteSOAPAction</bpel:from>
         <bpel:to>$createTMSTaskRequest.createRequest/tns:task/tns:metadata/tns:userProcessCompleteSOAPAction</bpel:to>
       </bpel:copy>
@@ -908,7 +1143,7 @@
         <bpel:invoke partnerLink="taskManagementProcessAndPreviousProcessTaskManagerForTMPPortPlkVar" portType="b4p:TMPPortType" operation="nextTaskReady" inputVariable="NextTaskReady" bpmn:label="Notify previous Task Manager" name="Notify_previous_Task_Manager-1" bpmn:id="_DkaEoKgeEdylDI4yblkdQQ"></bpel:invoke>
       </bpel:sequence>
     </bpel:if>
-    <bpel:empty bpmn:label="Exclusive_Data-Based_Gateway" name="Exclusive_Data-Based_Gateway-3" bpmn:id="_XFgswKgeEdylDI4yblkdQQ">
+    <bpel:empty bpmn:label="Exclusive_Data-Based_Gateway" name="Exclusive_Data-Based_Gateway-4" bpmn:id="_XFgswKgeEdylDI4yblkdQQ">
       <bpel:links>
         <bpel:targets></bpel:targets>
       </bpel:links>
@@ -934,7 +1169,7 @@
         <bpel:variable name="NextTaskReady" messageType="b4p:nextTaskReady"/>
         <bpel:variable name="GetTaskOwnerAndStateRequest" messageType="tns:getTaskOwnerAndStateRequest"/>
         <bpel:variable name="GetTaskOwnerAndStateResponse" messageType="tns:getTaskOwnerAndStateResponse"/>
-        <bpel:variable name="userBusinessProcess1CreateTaskSingleActivityResponse1Msg" messageType="UserBusinessProcess1:createTaskSingleActivityResponse"/>
+        <bpel:variable name="notifyTaskCompletionSingleActivtyRequest" messageType="UserBusinessProcess1:createTaskSingleActivityResponse"/>
         <bpel:variable name="hasPendingParallelTasks" type="xs:boolean"/>
         <bpel:variable name="tasks" element="b4p:tasks"/>
         <bpel:variable name="mainTaskId" type="xs:string"/>
@@ -951,19 +1186,22 @@
         <bpel:catch faultName="this:DeadlineReached">
           <bpel:scope bpmn:label="SubProcess" name="SubProcess" bpmn:id="_3Ct-YLEgEdy6MtvbqSLrQw">
             <bpel:variables>
-              <bpel:variable name="userBusinessProcess1CreateTaskSingleActivityResponseMsg" messageType="UserBusinessProcess1:createTaskSingleActivityResponse"/>
-              <bpel:variable name="tnsFailResponse2Msg" messageType="tns:okResponse"/>
-              <bpel:variable name="tnsFailRequest1Msg" messageType="tns:failRequest"/>
-              <bpel:variable name="userBusinessProcess1NotifyTaskCompletionResponse2Msg" messageType="UserBusinessProcess1:notifyTaskCompletionResponse"/>
-              <bpel:variable name="userBusinessProcess1NotifyTaskCompletionRequest1Msg" messageType="UserBusinessProcess1:notifyTaskCompletionRequest"/>
+              <bpel:variable name="notifyTaskDeadlineReachedSingleActivtyRequest" messageType="UserBusinessProcess1:createTaskSingleActivityResponse"/>
+              <bpel:variable name="FailTaskResponse" messageType="tns:okResponse"/>
+              <bpel:variable name="FailTaskRequest" messageType="tns:failRequest"/>
+              <bpel:variable name="notifyTaskDeadlineReachedResponse" messageType="UserBusinessProcess1:notifyTaskCompletionResponse"/>
+              <bpel:variable name="notifyTaskDeadlineReachedRequest" messageType="UserBusinessProcess1:notifyTaskCompletionRequest"/>
             </bpel:variables>
             <bpel:sequence>
               <bpel:assign name="init-variables-SubProcess" bpmn:id="_3Ct-YLEgEdy6MtvbqSLrQw">
-                <bpel:copy bpmn:label="$userBusinessProcess1CreateTaskSingleActivityResponseMsg">
+                <bpel:copy bpmn:label="$notifyTaskDeadlineReachedSingleActivtyRequest">
                   <bpel:from>
                     <bpel:literal>
 <b4p:createTaskSingleActivityResponse>
   <b4p:taskMetaData>
+    <b4p:activityInfo></b4p:activityInfo>
+    <b4p:taskRequestVarUBP></b4p:taskRequestVarUBP>
+    <b4p:taskResponseVarUBP></b4p:taskResponseVarUBP>
     <b4p:taskId></b4p:taskId>
     <b4p:taskState></b4p:taskState>
     <b4p:taskType></b4p:taskType>
@@ -1058,9 +1296,9 @@
   <b4p:participantToken></b4p:participantToken>
 </b4p:createTaskSingleActivityResponse></bpel:literal>
                   </bpel:from>
-                  <bpel:to>$userBusinessProcess1CreateTaskSingleActivityResponseMsg.root</bpel:to>
+                  <bpel:to>$notifyTaskDeadlineReachedSingleActivtyRequest.root</bpel:to>
                 </bpel:copy>
-                <bpel:copy bpmn:label="$tnsFailRequest1Msg">
+                <bpel:copy bpmn:label="$FailTaskRequest">
                   <bpel:from>
                     <bpel:literal>
 <tns:failRequest>
@@ -1070,13 +1308,16 @@
   <tns:participantToken></tns:participantToken>
 </tns:failRequest></bpel:literal>
                   </bpel:from>
-                  <bpel:to>$tnsFailRequest1Msg.failRequest</bpel:to>
+                  <bpel:to>$FailTaskRequest.failRequest</bpel:to>
                 </bpel:copy>
-                <bpel:copy bpmn:label="$userBusinessProcess1NotifyTaskCompletionRequest1Msg">
+                <bpel:copy bpmn:label="$notifyTaskDeadlineReachedRequest">
                   <bpel:from>
                     <bpel:literal>
 <b4p:notifyTaskCompletionRequest>
   <b4p:taskMetaData>
+    <b4p:activityInfo></b4p:activityInfo>
+    <b4p:taskRequestVarUBP></b4p:taskRequestVarUBP>
+    <b4p:taskResponseVarUBP></b4p:taskResponseVarUBP>
     <b4p:taskId></b4p:taskId>
     <b4p:taskState></b4p:taskState>
     <b4p:taskType></b4p:taskType>
@@ -1171,7 +1412,7 @@
   <b4p:participantToken></b4p:participantToken>
 </b4p:notifyTaskCompletionRequest></bpel:literal>
                   </bpel:from>
-                  <bpel:to>$userBusinessProcess1NotifyTaskCompletionRequest1Msg.root</bpel:to>
+                  <bpel:to>$notifyTaskDeadlineReachedRequest.root</bpel:to>
                 </bpel:copy>
               </bpel:assign>
               <bpel:if>
@@ -1180,48 +1421,48 @@
                   <bpel:assign bpmn:label="Notify Process&#13;&#10;Deadline Reached&#13;&#10;(Single Activity)" name="Notify_Process__Deadline_Reached___Single_Activity_" bpmn:id="_zZnlYPZbEeWLSY7FStN1pA">
                     <bpel:copy>
                       <bpel:from>"DeadlineReached"</bpel:from>
-                      <bpel:to>$userBusinessProcess1CreateTaskSingleActivityResponseMsg.root/b4p:status</bpel:to>
+                      <bpel:to>$notifyTaskDeadlineReachedSingleActivtyRequest.root/b4p:status</bpel:to>
                     </bpel:copy>
                     <bpel:copy>
                       <bpel:from>$createTaskRequest.root/b4p:taskMetaData/b4p:userProcessEndpoint</bpel:from>
-                      <bpel:to>$userBusinessProcess1CreateTaskSingleActivityResponseMsg.root/b4p:taskMetaData/b4p:userProcessEndpoint</bpel:to>
+                      <bpel:to>$notifyTaskDeadlineReachedSingleActivtyRequest.root/b4p:taskMetaData/b4p:userProcessEndpoint</bpel:to>
                     </bpel:copy>
                     <bpel:copy>
                       <bpel:from>$createTaskRequest.root/b4p:taskMetaData/b4p:userProcessNamespaceURI</bpel:from>
-                      <bpel:to>$userBusinessProcess1CreateTaskSingleActivityResponseMsg.root/b4p:taskMetaData/b4p:userProcessNamespaceURI</bpel:to>
+                      <bpel:to>$notifyTaskDeadlineReachedSingleActivtyRequest.root/b4p:taskMetaData/b4p:userProcessNamespaceURI</bpel:to>
                     </bpel:copy>
                     <bpel:copy>
                       <bpel:from>$createTaskRequest.root/b4p:taskMetaData/b4p:userProcessCompleteSOAPAction</bpel:from>
-                      <bpel:to>$userBusinessProcess1CreateTaskSingleActivityResponseMsg.root/b4p:taskMetaData/b4p:userProcessCompleteSOAPAction</bpel:to>
+                      <bpel:to>$notifyTaskDeadlineReachedSingleActivtyRequest.root/b4p:taskMetaData/b4p:userProcessCompleteSOAPAction</bpel:to>
                     </bpel:copy>
                   </bpel:assign>
-                  <bpel:invoke partnerLink="tMPAndUBPPlkVar" portType="UserBusinessProcess1:userProcessPortType" operation="notifyTaskCompletionSingleActivity" inputVariable="userBusinessProcess1CreateTaskSingleActivityResponseMsg" bpmn:label="Notify Process&#13;&#10;Deadline Reached&#13;&#10;(Single Activity)" name="Notify_Process__Deadline_Reached___Single_Activity_-1" bpmn:id="_zZnlYPZbEeWLSY7FStN1pA"></bpel:invoke>
+                  <bpel:invoke partnerLink="tMPAndUBPPlkVar" portType="UserBusinessProcess1:userProcessPortType" operation="notifyTaskCompletionSingleActivity" inputVariable="notifyTaskDeadlineReachedSingleActivtyRequest" bpmn:label="Notify Process&#13;&#10;Deadline Reached&#13;&#10;(Single Activity)" name="Notify_Process__Deadline_Reached___Single_Activity_-1" bpmn:id="_zZnlYPZbEeWLSY7FStN1pA"></bpel:invoke>
                 </bpel:sequence>
                 <bpel:else>
                   <bpel:sequence>
                     <bpel:assign bpmn:label="Notify Process Deadline Reached" name="Notify_Process_Deadline_Reached" bpmn:id="_UM9-sMK_EdyR9_IVnPh8Pg">
                       <bpel:copy>
                         <bpel:from>$createTaskRequest.root/b4p:taskMetaData/b4p:userProcessCompleteSOAPAction</bpel:from>
-                        <bpel:to>$userBusinessProcess1NotifyTaskCompletionRequest1Msg.root/b4p:taskMetaData/b4p:userProcessCompleteSOAPAction</bpel:to>
+                        <bpel:to>$notifyTaskDeadlineReachedRequest.root/b4p:taskMetaData/b4p:userProcessCompleteSOAPAction</bpel:to>
                       </bpel:copy>
                       <bpel:copy>
                         <bpel:from>$createTaskRequest.root/b4p:taskMetaData/b4p:userProcessNamespaceURI</bpel:from>
-                        <bpel:to>$userBusinessProcess1NotifyTaskCompletionRequest1Msg.root/b4p:taskMetaData/b4p:userProcessNamespaceURI</bpel:to>
+                        <bpel:to>$notifyTaskDeadlineReachedRequest.root/b4p:taskMetaData/b4p:userProcessNamespaceURI</bpel:to>
                       </bpel:copy>
                       <bpel:copy>
                         <bpel:from>$createTaskRequest.root/b4p:taskMetaData/b4p:userProcessEndpoint</bpel:from>
-                        <bpel:to>$userBusinessProcess1NotifyTaskCompletionRequest1Msg.root/b4p:taskMetaData/b4p:userProcessEndpoint</bpel:to>
+                        <bpel:to>$notifyTaskDeadlineReachedRequest.root/b4p:taskMetaData/b4p:userProcessEndpoint</bpel:to>
                       </bpel:copy>
                       <bpel:copy>
                         <bpel:from>"DeadlineReached"</bpel:from>
-                        <bpel:to>$userBusinessProcess1NotifyTaskCompletionRequest1Msg.root/b4p:status</bpel:to>
+                        <bpel:to>$notifyTaskDeadlineReachedRequest.root/b4p:status</bpel:to>
                       </bpel:copy>
                     </bpel:assign>
-                    <bpel:invoke partnerLink="tMPAndUBPPlkVar" portType="UserBusinessProcess1:userProcessPortType" operation="notifyTaskCompletion" inputVariable="userBusinessProcess1NotifyTaskCompletionRequest1Msg" outputVariable="userBusinessProcess1NotifyTaskCompletionResponse2Msg" bpmn:label="Notify Process Deadline Reached" name="Notify_Process_Deadline_Reached-1" bpmn:id="_UM9-sMK_EdyR9_IVnPh8Pg"></bpel:invoke>
+                    <bpel:invoke partnerLink="tMPAndUBPPlkVar" portType="UserBusinessProcess1:userProcessPortType" operation="notifyTaskCompletion" inputVariable="notifyTaskDeadlineReachedRequest" outputVariable="notifyTaskDeadlineReachedResponse" bpmn:label="Notify Process Deadline Reached" name="Notify_Process_Deadline_Reached-1" bpmn:id="_UM9-sMK_EdyR9_IVnPh8Pg"></bpel:invoke>
                   </bpel:sequence>
                 </bpel:else>
               </bpel:if>
-              <bpel:empty bpmn:label="Exclusive_Data-Based_Gateway" name="Exclusive_Data-Based_Gateway-4" bpmn:id="_2CnA4PZbEeWLSY7FStN1pA">
+              <bpel:empty bpmn:label="Exclusive_Data-Based_Gateway" name="Exclusive_Data-Based_Gateway-5" bpmn:id="_2CnA4PZbEeWLSY7FStN1pA">
                 <bpel:links>
                   <bpel:targets></bpel:targets>
                 </bpel:links>
@@ -1229,10 +1470,10 @@
               <bpel:assign bpmn:label="Change Task status to Failed" name="Change_Task_status_to_Failed" bpmn:id="_FyrywLEhEdy6MtvbqSLrQw">
                 <bpel:copy>
                   <bpel:from>$taskId</bpel:from>
-                  <bpel:to>$tnsFailRequest1Msg.failRequest/tns:taskId</bpel:to>
+                  <bpel:to>$FailTaskRequest.failRequest/tns:taskId</bpel:to>
                 </bpel:copy>
               </bpel:assign>
-              <bpel:invoke partnerLink="taskManagementProcessAndTaskManagementSystemForPortTaskManagementServicesSOAPPlkVar" portType="tns:TaskManagementServicesPortType" operation="fail" inputVariable="tnsFailRequest1Msg" outputVariable="tnsFailResponse2Msg" bpmn:label="Change Task status to Failed" name="Change_Task_status_to_Failed-1" bpmn:id="_FyrywLEhEdy6MtvbqSLrQw"></bpel:invoke>
+              <bpel:invoke partnerLink="taskManagementProcessAndTaskManagementSystemForPortTaskManagementServicesSOAPPlkVar" portType="tns:TaskManagementServicesPortType" operation="fail" inputVariable="FailTaskRequest" outputVariable="FailTaskResponse" bpmn:label="Change Task status to Failed" name="Change_Task_status_to_Failed-1" bpmn:id="_FyrywLEhEdy6MtvbqSLrQw"></bpel:invoke>
             </bpel:sequence>
           </bpel:scope>
         </bpel:catch>
@@ -1424,6 +1665,9 @@
                 <bpel:literal>
 <b4p:response>
   <b4p:taskMetaData>
+    <b4p:activityInfo></b4p:activityInfo>
+    <b4p:taskRequestVarUBP></b4p:taskRequestVarUBP>
+    <b4p:taskResponseVarUBP></b4p:taskResponseVarUBP>
     <b4p:taskId></b4p:taskId>
     <b4p:taskState></b4p:taskState>
     <b4p:taskType></b4p:taskType>
@@ -1530,11 +1774,14 @@
               </bpel:from>
               <bpel:to>$GetTaskOwnerAndStateRequest.getTaskOwnerAndStateRequest</bpel:to>
             </bpel:copy>
-            <bpel:copy bpmn:label="$userBusinessProcess1CreateTaskSingleActivityResponse1Msg">
+            <bpel:copy bpmn:label="$notifyTaskCompletionSingleActivtyRequest">
               <bpel:from>
                 <bpel:literal>
 <b4p:createTaskSingleActivityResponse>
   <b4p:taskMetaData>
+    <b4p:activityInfo></b4p:activityInfo>
+    <b4p:taskRequestVarUBP></b4p:taskRequestVarUBP>
+    <b4p:taskResponseVarUBP></b4p:taskResponseVarUBP>
     <b4p:taskId></b4p:taskId>
     <b4p:taskState></b4p:taskState>
     <b4p:taskType></b4p:taskType>
@@ -1629,7 +1876,7 @@
   <b4p:participantToken></b4p:participantToken>
 </b4p:createTaskSingleActivityResponse></bpel:literal>
               </bpel:from>
-              <bpel:to>$userBusinessProcess1CreateTaskSingleActivityResponse1Msg.root</bpel:to>
+              <bpel:to>$notifyTaskCompletionSingleActivtyRequest.root</bpel:to>
             </bpel:copy>
             <bpel:copy bpmn:label="$hasPendingParallelTasks">
               <bpel:from>
@@ -1779,7 +2026,7 @@
                       <bpel:invoke partnerLink="taskManagementProcessAndTaskManagementSystemForPortTaskManagementServicesSOAPPlkVar" portType="tns:TaskManagementServicesPortType" operation="reassign" inputVariable="reassignTMSEscalateRequest" outputVariable="reassignTMSEscalateResponse" bpmn:label="reassign revoked task" name="reassign_revoked_task-1" bpmn:id="_TtOm0KklEdyFPr8ebhWveQ"></bpel:invoke>
                     </bpel:sequence>
                   </bpel:if>
-                  <bpel:empty bpmn:label="Exclusive_Data-Based_Gateway" name="Exclusive_Data-Based_Gateway-5" bpmn:id="_8zpt4A7REd6OcttEdwEXRA">
+                  <bpel:empty bpmn:label="Exclusive_Data-Based_Gateway" name="Exclusive_Data-Based_Gateway-6" bpmn:id="_8zpt4A7REd6OcttEdwEXRA">
                     <bpel:links>
                       <bpel:targets></bpel:targets>
                     </bpel:links>
@@ -1867,7 +2114,7 @@
                                 </bpel:sequence>
                               </bpel:else>
                             </bpel:if>
-                            <bpel:empty bpmn:label="Exclusive_Data-Based_Gateway" name="Exclusive_Data-Based_Gateway-6" bpmn:id="_IGJUIKkTEdyRnIK1kDiFhA">
+                            <bpel:empty bpmn:label="Exclusive_Data-Based_Gateway" name="Exclusive_Data-Based_Gateway-7" bpmn:id="_IGJUIKkTEdyRnIK1kDiFhA">
                               <bpel:links>
                                 <bpel:targets></bpel:targets>
                               </bpel:links>
@@ -1900,7 +2147,7 @@
                       </bpel:if>
                     </bpel:else>
                   </bpel:if>
-                  <bpel:empty bpmn:label="Exclusive_Data-Based_Gateway" name="Exclusive_Data-Based_Gateway-7" bpmn:id="_qXKMIA7LEd6OcttEdwEXRA">
+                  <bpel:empty bpmn:label="Exclusive_Data-Based_Gateway" name="Exclusive_Data-Based_Gateway-8" bpmn:id="_qXKMIA7LEd6OcttEdwEXRA">
                     <bpel:links>
                       <bpel:targets></bpel:targets>
                     </bpel:links>
@@ -1977,7 +2224,7 @@
                           <bpel:to>$completeTaskResponse.root/b4p:status</bpel:to>
                         </bpel:copy>
                       </bpel:assign>
-                      <bpel:empty bpmn:label="Exclusive_Data-Based_Gateway" name="Exclusive_Data-Based_Gateway-8" bpmn:id="_JL6L8MPoEd6KT51CNOEWqw">
+                      <bpel:empty bpmn:label="Exclusive_Data-Based_Gateway" name="Exclusive_Data-Based_Gateway-9" bpmn:id="_JL6L8MPoEd6KT51CNOEWqw">
                         <bpel:links>
                           <bpel:targets></bpel:targets>
                         </bpel:links>
@@ -2011,7 +2258,7 @@
                             <bpel:to>$completeTaskResponse.root/b4p:status</bpel:to>
                           </bpel:copy>
                         </bpel:assign>
-                        <bpel:empty bpmn:label="Exclusive_Data-Based_Gateway" name="Exclusive_Data-Based_Gateway-9" bpmn:id="_JL6L8MPoEd6KT51CNOEWqw">
+                        <bpel:empty bpmn:label="Exclusive_Data-Based_Gateway" name="Exclusive_Data-Based_Gateway-10" bpmn:id="_JL6L8MPoEd6KT51CNOEWqw">
                           <bpel:links>
                             <bpel:targets></bpel:targets>
                           </bpel:links>
@@ -2055,6 +2302,9 @@
                                     <bpel:literal>
 <b4p:response>
   <b4p:taskMetaData>
+    <b4p:activityInfo></b4p:activityInfo>
+    <b4p:taskRequestVarUBP></b4p:taskRequestVarUBP>
+    <b4p:taskResponseVarUBP></b4p:taskResponseVarUBP>
     <b4p:taskId></b4p:taskId>
     <b4p:taskState></b4p:taskState>
     <b4p:taskType></b4p:taskType>
@@ -2177,6 +2427,9 @@
                                     <bpel:literal>
 <b4p:response>
   <b4p:taskMetaData>
+    <b4p:activityInfo></b4p:activityInfo>
+    <b4p:taskRequestVarUBP></b4p:taskRequestVarUBP>
+    <b4p:taskResponseVarUBP></b4p:taskResponseVarUBP>
     <b4p:taskId></b4p:taskId>
     <b4p:taskState></b4p:taskState>
     <b4p:taskType></b4p:taskType>
@@ -2289,6 +2542,9 @@
                                     <bpel:literal>
 <b4p:response>
   <b4p:taskMetaData>
+    <b4p:activityInfo></b4p:activityInfo>
+    <b4p:taskRequestVarUBP></b4p:taskRequestVarUBP>
+    <b4p:taskResponseVarUBP></b4p:taskResponseVarUBP>
     <b4p:taskId></b4p:taskId>
     <b4p:taskState></b4p:taskState>
     <b4p:taskType></b4p:taskType>
@@ -2400,6 +2656,9 @@
                                     <bpel:literal>
 <b4p:response>
   <b4p:taskMetaData>
+    <b4p:activityInfo></b4p:activityInfo>
+    <b4p:taskRequestVarUBP></b4p:taskRequestVarUBP>
+    <b4p:taskResponseVarUBP></b4p:taskResponseVarUBP>
     <b4p:taskId></b4p:taskId>
     <b4p:taskState></b4p:taskState>
     <b4p:taskType></b4p:taskType>
@@ -2512,7 +2771,7 @@
                                 </bpel:copy>
                               </bpel:assign>
                               <bpel:invoke partnerLink="taskManagementProcessAndTaskManagementSystemForPortTaskManagementServicesSOAPPlkVar" portType="tns:TaskManagementServicesPortType" operation="getAssociatedTasks" inputVariable="GetAssociatedTasksRequest" outputVariable="GetAssociatedTasksResponse" bpmn:label="get associated tasks" name="get_associated_tasks-1" bpmn:id="_nMt2cPfWEeWjSajsvnwYGw"></bpel:invoke>
-                              <bpel:flow bpmn:label="Parallel_Gateway" name="Parallel_Gateway" bpmn:id="_QGyhAPspEeWYbYkB2ueXDg">
+                              <bpel:flow bpmn:label="Parallel_Gateway" name="Parallel_Gateway-1" bpmn:id="_QGyhAPspEeWYbYkB2ueXDg">
                                 <bpel:sequence>
                                   <bpel:assign bpmn:label="get parallel&#13;&#10;pending tasks" name="get_parallel__pending_tasks" bpmn:id="_qS8AgPfWEeWjSajsvnwYGw">
                                     <bpel:copy>
@@ -2606,7 +2865,7 @@
                                         <bpel:elseif>
                                           <bpel:condition>$GetStateOfAssociatedTaskResponse.getTaskOwnerAndStateResponse/tns:task/tns:metadata/tns:taskState/text() = "COMPLETED"</bpel:condition>
                                           <bpel:sequence>
-                                            <bpel:empty bpmn:label="Exclusive_Data-Based_Gateway" name="Exclusive_Data-Based_Gateway-10" bpmn:id="_ZMQnkPu0EeWYbYkB2ueXDg">
+                                            <bpel:empty bpmn:label="Exclusive_Data-Based_Gateway" name="Exclusive_Data-Based_Gateway-11" bpmn:id="_ZMQnkPu0EeWYbYkB2ueXDg">
                                               <bpel:links>
                                                 <bpel:targets></bpel:targets>
                                               </bpel:links>
@@ -2626,7 +2885,7 @@
                                               </bpel:copy>
                                             </bpel:assign>
                                             <bpel:invoke partnerLink="taskManagementProcessAndTaskManagementSystemForPortTaskManagementServicesSOAPPlkVar" portType="tns:TaskManagementServicesPortType" operation="setOutputAndComplete" inputVariable="completeTMSTaskRequest" outputVariable="completeTMSTaskResponse" bpmn:label="Invoke TMS to mark Task as completed" name="Invoke_TMS_to_mark_Task_as_completed-1" bpmn:id="_wSyCIKhNEdyQFMjeTyvJzg"></bpel:invoke>
-                                            <bpel:flow bpmn:label="Parallel_Gateway" name="Parallel_Gateway-1" bpmn:id="_8ApvYPu7EeWYbYkB2ueXDg">
+                                            <bpel:flow bpmn:label="Parallel_Gateway" name="Parallel_Gateway-2" bpmn:id="_8ApvYPu7EeWYbYkB2ueXDg">
                                               <bpel:sequence>
                                                 <bpel:assign bpmn:label="getAttachements" name="getAttachements" bpmn:id="_6-GHIGmhEd2FXpqqOgbHYQ">
                                                   <bpel:copy>
@@ -2651,7 +2910,7 @@
                                                     <bpel:to>$GetGlobalAttachmentsRequest.getAttachmentsRequest/tns:participantToken</bpel:to>
                                                   </bpel:copy>
                                                   <bpel:copy>
-                                                    <bpel:from>true()</bpel:from>
+                                                    <bpel:from>"true"</bpel:from>
                                                     <bpel:to>$GetGlobalAttachmentsRequest.getAttachmentsRequest/tns:globalAttachment</bpel:to>
                                                   </bpel:copy>
                                                 </bpel:assign>
@@ -2659,9 +2918,34 @@
                                               </bpel:sequence>
                                             </bpel:flow>
                                             <bpel:if>
-                                              <bpel:condition>$adhocDataVar/b4p:adhocPlacement = "SUCCEEDING"</bpel:condition>
+                                              <bpel:condition>$adhocDataVar/b4p:isAdhocTask = "true"</bpel:condition>
                                               <bpel:sequence>
-                                                <bpel:empty bpmn:label="Exclusive_Data-Based_Gateway" name="Exclusive_Data-Based_Gateway-11" bpmn:id="_Q9PFwPu2EeWYbYkB2ueXDg">
+                                                <bpel:assign bpmn:label="perform&#13;&#10;XSL" name="perform__XSL" bpmn:id="_p94KsPrwEeWXrK7amFnysQ">
+                                                  <bpel:copy>
+                                                    <bpel:from>bpel:doXslTransform("getMainTask.xsl", $GetAssociatedTasksResponse.getAssociatedTasksResponse)</bpel:from>
+                                                    <bpel:to>$tasks</bpel:to>
+                                                  </bpel:copy>
+                                                </bpel:assign>
+                                                <bpel:if>
+                                                  <bpel:condition>count($tasks/b4p:task)&gt; 0</bpel:condition>
+                                                  <bpel:empty/>
+                                                  <bpel:else>
+                                                    <bpel:sequence>
+                                                      <bpel:assign bpmn:label="notify main task" name="notify_main_task" bpmn:id="_FHryQPcPEeWqxKaG65t8rA">
+                                                        <bpel:copy>
+                                                          <bpel:from>$taskId</bpel:from>
+                                                          <bpel:to>$NotifyParallelAdhocTaskCompleted.root/b4p:adhocTaskID</bpel:to>
+                                                        </bpel:copy>
+                                                        <bpel:copy>
+                                                          <bpel:from>$adhocDataVar/b4p:associatedTaskID</bpel:from>
+                                                          <bpel:to>$NotifyParallelAdhocTaskCompleted.root/b4p:associatedTaskID</bpel:to>
+                                                        </bpel:copy>
+                                                      </bpel:assign>
+                                                      <bpel:invoke partnerLink="taskManagementProcessimplicitPartnerAndTaskManagementProcessForTMPPortPlkVar" portType="b4p:TMPPortType" operation="parallelAdhocTaskCompleted" inputVariable="NotifyParallelAdhocTaskCompleted" bpmn:label="notify main task" name="notify_main_task-1" bpmn:id="_FHryQPcPEeWqxKaG65t8rA"></bpel:invoke>
+                                                    </bpel:sequence>
+                                                  </bpel:else>
+                                                </bpel:if>
+                                                <bpel:empty bpmn:label="Exclusive_Data-Based_Gateway" name="Exclusive_Data-Based_Gateway-12" bpmn:id="_Q9PFwPu2EeWYbYkB2ueXDg">
                                                   <bpel:links>
                                                     <bpel:targets></bpel:targets>
                                                   </bpel:links>
@@ -2669,11 +2953,11 @@
                                                 <bpel:assign bpmn:label="send response" name="send_response-4" bpmn:id="_ljd9kPcOEeWqxKaG65t8rA">
                                                   <bpel:copy>
                                                     <bpel:from>"OK"</bpel:from>
-                                                    <bpel:to>$completeTaskResponse.root/b4p:status</bpel:to>
+                                                    <bpel:to>$ParallelAdhocTaskCompleteResponse.root/b4p:status</bpel:to>
                                                   </bpel:copy>
                                                   <bpel:copy>
                                                     <bpel:from>false()</bpel:from>
-                                                    <bpel:to>$completeTaskResponse.root/b4p:isChainedAfter</bpel:to>
+                                                    <bpel:to>$ParallelAdhocTaskCompleteResponse.root/b4p:isChainedAfter</bpel:to>
                                                   </bpel:copy>
                                                 </bpel:assign>
                                                 <bpel:reply partnerLink="taskManagementProcessAndUIFWForUIFWPortPlkVar" portType="b4p:UIFWPortType" operation="completeTask" variable="ParallelAdhocTaskCompleteResponse" bpmn:label="send response" name="send_response-5" bpmn:id="_ljd9kPcOEeWqxKaG65t8rA"></bpel:reply>
@@ -2689,34 +2973,9 @@
                                                 </bpel:assign>
                                               </bpel:sequence>
                                               <bpel:elseif>
-                                                <bpel:condition>$adhocDataVar/b4p:isAdhocTask = "true"</bpel:condition>
+                                                <bpel:condition>$adhocDataVar/b4p:adhocPlacement = "SUCCEEDING"</bpel:condition>
                                                 <bpel:sequence>
-                                                  <bpel:assign bpmn:label="perform&#13;&#10;XSL" name="perform__XSL" bpmn:id="_p94KsPrwEeWXrK7amFnysQ">
-                                                    <bpel:copy>
-                                                      <bpel:from>bpel:doXslTransform("getMainTask.xsl", $GetAssociatedTasksResponse.getAssociatedTasksResponse)</bpel:from>
-                                                      <bpel:to>$tasks</bpel:to>
-                                                    </bpel:copy>
-                                                  </bpel:assign>
-                                                  <bpel:if>
-                                                    <bpel:condition>count($tasks/b4p:task)&gt; 0</bpel:condition>
-                                                    <bpel:empty/>
-                                                    <bpel:else>
-                                                      <bpel:sequence>
-                                                        <bpel:assign bpmn:label="notify main task" name="notify_main_task" bpmn:id="_FHryQPcPEeWqxKaG65t8rA">
-                                                          <bpel:copy>
-                                                            <bpel:from>$taskId</bpel:from>
-                                                            <bpel:to>$NotifyParallelAdhocTaskCompleted.root/b4p:adhocTaskID</bpel:to>
-                                                          </bpel:copy>
-                                                          <bpel:copy>
-                                                            <bpel:from>$adhocDataVar/b4p:associatedTaskID</bpel:from>
-                                                            <bpel:to>$NotifyParallelAdhocTaskCompleted.root/b4p:associatedTaskID</bpel:to>
-                                                          </bpel:copy>
-                                                        </bpel:assign>
-                                                        <bpel:invoke partnerLink="taskManagementProcessimplicitPartnerAndTaskManagementProcessForTMPPortPlkVar" portType="b4p:TMPPortType" operation="parallelAdhocTaskCompleted" inputVariable="NotifyParallelAdhocTaskCompleted" bpmn:label="notify main task" name="notify_main_task-1" bpmn:id="_FHryQPcPEeWqxKaG65t8rA"></bpel:invoke>
-                                                      </bpel:sequence>
-                                                    </bpel:else>
-                                                  </bpel:if>
-                                                  <bpel:empty bpmn:label="Exclusive_Data-Based_Gateway" name="Exclusive_Data-Based_Gateway-12" bpmn:id="_Q9PFwPu2EeWYbYkB2ueXDg">
+                                                  <bpel:empty bpmn:label="Exclusive_Data-Based_Gateway" name="Exclusive_Data-Based_Gateway-13" bpmn:id="_Q9PFwPu2EeWYbYkB2ueXDg">
                                                     <bpel:links>
                                                       <bpel:targets></bpel:targets>
                                                     </bpel:links>
@@ -2724,11 +2983,11 @@
                                                   <bpel:assign bpmn:label="send response" name="send_response-6" bpmn:id="_ljd9kPcOEeWqxKaG65t8rA">
                                                     <bpel:copy>
                                                       <bpel:from>"OK"</bpel:from>
-                                                      <bpel:to>$completeTaskResponse.root/b4p:status</bpel:to>
+                                                      <bpel:to>$ParallelAdhocTaskCompleteResponse.root/b4p:status</bpel:to>
                                                     </bpel:copy>
                                                     <bpel:copy>
                                                       <bpel:from>false()</bpel:from>
-                                                      <bpel:to>$completeTaskResponse.root/b4p:isChainedAfter</bpel:to>
+                                                      <bpel:to>$ParallelAdhocTaskCompleteResponse.root/b4p:isChainedAfter</bpel:to>
                                                     </bpel:copy>
                                                   </bpel:assign>
                                                   <bpel:reply partnerLink="taskManagementProcessAndUIFWForUIFWPortPlkVar" portType="b4p:UIFWPortType" operation="completeTask" variable="ParallelAdhocTaskCompleteResponse" bpmn:label="send response" name="send_response-7" bpmn:id="_ljd9kPcOEeWqxKaG65t8rA"></bpel:reply>
@@ -2772,7 +3031,7 @@
                                                           </bpel:sequence>
                                                         </bpel:else>
                                                       </bpel:if>
-                                                      <bpel:empty bpmn:label="Exclusive_Data-Based_Gateway" name="Exclusive_Data-Based_Gateway-13" bpmn:id="_hxYJ8_pZEeWSFoiaog61EQ">
+                                                      <bpel:empty bpmn:label="Exclusive_Data-Based_Gateway" name="Exclusive_Data-Based_Gateway-14" bpmn:id="_hxYJ8_pZEeWSFoiaog61EQ">
                                                         <bpel:links>
                                                           <bpel:targets></bpel:targets>
                                                         </bpel:links>
@@ -2814,7 +3073,7 @@
                                     </bpel:sequence>
                                     <bpel:else>
                                       <bpel:sequence>
-                                        <bpel:empty bpmn:label="Exclusive_Data-Based_Gateway" name="Exclusive_Data-Based_Gateway-14" bpmn:id="_ZMQnkPu0EeWYbYkB2ueXDg">
+                                        <bpel:empty bpmn:label="Exclusive_Data-Based_Gateway" name="Exclusive_Data-Based_Gateway-15" bpmn:id="_ZMQnkPu0EeWYbYkB2ueXDg">
                                           <bpel:links>
                                             <bpel:targets></bpel:targets>
                                           </bpel:links>
@@ -2834,7 +3093,7 @@
                                           </bpel:copy>
                                         </bpel:assign>
                                         <bpel:invoke partnerLink="taskManagementProcessAndTaskManagementSystemForPortTaskManagementServicesSOAPPlkVar" portType="tns:TaskManagementServicesPortType" operation="setOutputAndComplete" inputVariable="completeTMSTaskRequest" outputVariable="completeTMSTaskResponse" bpmn:label="Invoke TMS to mark Task as completed" name="Invoke_TMS_to_mark_Task_as_completed-3" bpmn:id="_wSyCIKhNEdyQFMjeTyvJzg"></bpel:invoke>
-                                        <bpel:flow bpmn:label="Parallel_Gateway" name="Parallel_Gateway-2" bpmn:id="_8ApvYPu7EeWYbYkB2ueXDg">
+                                        <bpel:flow bpmn:label="Parallel_Gateway" name="Parallel_Gateway-3" bpmn:id="_8ApvYPu7EeWYbYkB2ueXDg">
                                           <bpel:sequence>
                                             <bpel:assign bpmn:label="getAttachements" name="getAttachements-2" bpmn:id="_6-GHIGmhEd2FXpqqOgbHYQ">
                                               <bpel:copy>
@@ -2859,7 +3118,7 @@
                                                 <bpel:to>$GetGlobalAttachmentsRequest.getAttachmentsRequest/tns:participantToken</bpel:to>
                                               </bpel:copy>
                                               <bpel:copy>
-                                                <bpel:from>true()</bpel:from>
+                                                <bpel:from>"true"</bpel:from>
                                                 <bpel:to>$GetGlobalAttachmentsRequest.getAttachmentsRequest/tns:globalAttachment</bpel:to>
                                               </bpel:copy>
                                             </bpel:assign>
@@ -2867,9 +3126,34 @@
                                           </bpel:sequence>
                                         </bpel:flow>
                                         <bpel:if>
-                                          <bpel:condition>$adhocDataVar/b4p:adhocPlacement = "SUCCEEDING"</bpel:condition>
+                                          <bpel:condition>$adhocDataVar/b4p:isAdhocTask = "true"</bpel:condition>
                                           <bpel:sequence>
-                                            <bpel:empty bpmn:label="Exclusive_Data-Based_Gateway" name="Exclusive_Data-Based_Gateway-15" bpmn:id="_Q9PFwPu2EeWYbYkB2ueXDg">
+                                            <bpel:assign bpmn:label="perform&#13;&#10;XSL" name="perform__XSL-1" bpmn:id="_p94KsPrwEeWXrK7amFnysQ">
+                                              <bpel:copy>
+                                                <bpel:from>bpel:doXslTransform("getMainTask.xsl", $GetAssociatedTasksResponse.getAssociatedTasksResponse)</bpel:from>
+                                                <bpel:to>$tasks</bpel:to>
+                                              </bpel:copy>
+                                            </bpel:assign>
+                                            <bpel:if>
+                                              <bpel:condition>count($tasks/b4p:task)&gt; 0</bpel:condition>
+                                              <bpel:empty/>
+                                              <bpel:else>
+                                                <bpel:sequence>
+                                                  <bpel:assign bpmn:label="notify main task" name="notify_main_task-2" bpmn:id="_FHryQPcPEeWqxKaG65t8rA">
+                                                    <bpel:copy>
+                                                      <bpel:from>$taskId</bpel:from>
+                                                      <bpel:to>$NotifyParallelAdhocTaskCompleted.root/b4p:adhocTaskID</bpel:to>
+                                                    </bpel:copy>
+                                                    <bpel:copy>
+                                                      <bpel:from>$adhocDataVar/b4p:associatedTaskID</bpel:from>
+                                                      <bpel:to>$NotifyParallelAdhocTaskCompleted.root/b4p:associatedTaskID</bpel:to>
+                                                    </bpel:copy>
+                                                  </bpel:assign>
+                                                  <bpel:invoke partnerLink="taskManagementProcessimplicitPartnerAndTaskManagementProcessForTMPPortPlkVar" portType="b4p:TMPPortType" operation="parallelAdhocTaskCompleted" inputVariable="NotifyParallelAdhocTaskCompleted" bpmn:label="notify main task" name="notify_main_task-3" bpmn:id="_FHryQPcPEeWqxKaG65t8rA"></bpel:invoke>
+                                                </bpel:sequence>
+                                              </bpel:else>
+                                            </bpel:if>
+                                            <bpel:empty bpmn:label="Exclusive_Data-Based_Gateway" name="Exclusive_Data-Based_Gateway-16" bpmn:id="_Q9PFwPu2EeWYbYkB2ueXDg">
                                               <bpel:links>
                                                 <bpel:targets></bpel:targets>
                                               </bpel:links>
@@ -2877,11 +3161,11 @@
                                             <bpel:assign bpmn:label="send response" name="send_response-8" bpmn:id="_ljd9kPcOEeWqxKaG65t8rA">
                                               <bpel:copy>
                                                 <bpel:from>"OK"</bpel:from>
-                                                <bpel:to>$completeTaskResponse.root/b4p:status</bpel:to>
+                                                <bpel:to>$ParallelAdhocTaskCompleteResponse.root/b4p:status</bpel:to>
                                               </bpel:copy>
                                               <bpel:copy>
                                                 <bpel:from>false()</bpel:from>
-                                                <bpel:to>$completeTaskResponse.root/b4p:isChainedAfter</bpel:to>
+                                                <bpel:to>$ParallelAdhocTaskCompleteResponse.root/b4p:isChainedAfter</bpel:to>
                                               </bpel:copy>
                                             </bpel:assign>
                                             <bpel:reply partnerLink="taskManagementProcessAndUIFWForUIFWPortPlkVar" portType="b4p:UIFWPortType" operation="completeTask" variable="ParallelAdhocTaskCompleteResponse" bpmn:label="send response" name="send_response-9" bpmn:id="_ljd9kPcOEeWqxKaG65t8rA"></bpel:reply>
@@ -2897,34 +3181,9 @@
                                             </bpel:assign>
                                           </bpel:sequence>
                                           <bpel:elseif>
-                                            <bpel:condition>$adhocDataVar/b4p:isAdhocTask = "true"</bpel:condition>
+                                            <bpel:condition>$adhocDataVar/b4p:adhocPlacement = "SUCCEEDING"</bpel:condition>
                                             <bpel:sequence>
-                                              <bpel:assign bpmn:label="perform&#13;&#10;XSL" name="perform__XSL-1" bpmn:id="_p94KsPrwEeWXrK7amFnysQ">
-                                                <bpel:copy>
-                                                  <bpel:from>bpel:doXslTransform("getMainTask.xsl", $GetAssociatedTasksResponse.getAssociatedTasksResponse)</bpel:from>
-                                                  <bpel:to>$tasks</bpel:to>
-                                                </bpel:copy>
-                                              </bpel:assign>
-                                              <bpel:if>
-                                                <bpel:condition>count($tasks/b4p:task)&gt; 0</bpel:condition>
-                                                <bpel:empty/>
-                                                <bpel:else>
-                                                  <bpel:sequence>
-                                                    <bpel:assign bpmn:label="notify main task" name="notify_main_task-2" bpmn:id="_FHryQPcPEeWqxKaG65t8rA">
-                                                      <bpel:copy>
-                                                        <bpel:from>$taskId</bpel:from>
-                                                        <bpel:to>$NotifyParallelAdhocTaskCompleted.root/b4p:adhocTaskID</bpel:to>
-                                                      </bpel:copy>
-                                                      <bpel:copy>
-                                                        <bpel:from>$adhocDataVar/b4p:associatedTaskID</bpel:from>
-                                                        <bpel:to>$NotifyParallelAdhocTaskCompleted.root/b4p:associatedTaskID</bpel:to>
-                                                      </bpel:copy>
-                                                    </bpel:assign>
-                                                    <bpel:invoke partnerLink="taskManagementProcessimplicitPartnerAndTaskManagementProcessForTMPPortPlkVar" portType="b4p:TMPPortType" operation="parallelAdhocTaskCompleted" inputVariable="NotifyParallelAdhocTaskCompleted" bpmn:label="notify main task" name="notify_main_task-3" bpmn:id="_FHryQPcPEeWqxKaG65t8rA"></bpel:invoke>
-                                                  </bpel:sequence>
-                                                </bpel:else>
-                                              </bpel:if>
-                                              <bpel:empty bpmn:label="Exclusive_Data-Based_Gateway" name="Exclusive_Data-Based_Gateway-16" bpmn:id="_Q9PFwPu2EeWYbYkB2ueXDg">
+                                              <bpel:empty bpmn:label="Exclusive_Data-Based_Gateway" name="Exclusive_Data-Based_Gateway-17" bpmn:id="_Q9PFwPu2EeWYbYkB2ueXDg">
                                                 <bpel:links>
                                                   <bpel:targets></bpel:targets>
                                                 </bpel:links>
@@ -2932,11 +3191,11 @@
                                               <bpel:assign bpmn:label="send response" name="send_response-10" bpmn:id="_ljd9kPcOEeWqxKaG65t8rA">
                                                 <bpel:copy>
                                                   <bpel:from>"OK"</bpel:from>
-                                                  <bpel:to>$completeTaskResponse.root/b4p:status</bpel:to>
+                                                  <bpel:to>$ParallelAdhocTaskCompleteResponse.root/b4p:status</bpel:to>
                                                 </bpel:copy>
                                                 <bpel:copy>
                                                   <bpel:from>false()</bpel:from>
-                                                  <bpel:to>$completeTaskResponse.root/b4p:isChainedAfter</bpel:to>
+                                                  <bpel:to>$ParallelAdhocTaskCompleteResponse.root/b4p:isChainedAfter</bpel:to>
                                                 </bpel:copy>
                                               </bpel:assign>
                                               <bpel:reply partnerLink="taskManagementProcessAndUIFWForUIFWPortPlkVar" portType="b4p:UIFWPortType" operation="completeTask" variable="ParallelAdhocTaskCompleteResponse" bpmn:label="send response" name="send_response-11" bpmn:id="_ljd9kPcOEeWqxKaG65t8rA"></bpel:reply>
@@ -2980,7 +3239,7 @@
                                                       </bpel:sequence>
                                                     </bpel:else>
                                                   </bpel:if>
-                                                  <bpel:empty bpmn:label="Exclusive_Data-Based_Gateway" name="Exclusive_Data-Based_Gateway-17" bpmn:id="_hxYJ8_pZEeWSFoiaog61EQ">
+                                                  <bpel:empty bpmn:label="Exclusive_Data-Based_Gateway" name="Exclusive_Data-Based_Gateway-18" bpmn:id="_hxYJ8_pZEeWSFoiaog61EQ">
                                                     <bpel:links>
                                                       <bpel:targets></bpel:targets>
                                                     </bpel:links>
@@ -3047,57 +3306,57 @@
                                       <bpel:if>
                                         <bpel:condition>$isSingleActivit</bpel:condition>
                                         <bpel:sequence>
-                                          <bpel:assign bpmn:label="notify Task&#13;&#10;Completion Single&#13;&#10;Activity&#13;&#10;" name="notify_Task__Completion_Single__Activity" bpmn:id="_Snpj8PY2EeW2GY9-FhCCxw">
+                                          <bpel:assign bpmn:label="notify Task&#13;&#10;Completion Single&#13;&#10;Activity" name="notify_Task__Completion_Single__Activity" bpmn:id="_Snpj8PY2EeW2GY9-FhCCxw">
                                             <bpel:copy>
                                               <bpel:from>$createTaskRequest.root/b4p:taskMetaData/b4p:processId</bpel:from>
-                                              <bpel:to>$userBusinessProcess1CreateTaskSingleActivityResponse1Msg.root/b4p:taskMetaData/b4p:processId</bpel:to>
+                                              <bpel:to>$notifyTaskCompletionSingleActivtyRequest.root/b4p:taskMetaData/b4p:processId</bpel:to>
                                             </bpel:copy>
                                             <bpel:copy>
                                               <bpel:from>$createTaskRequest.root/b4p:taskMetaData/b4p:userProcessEndpoint</bpel:from>
-                                              <bpel:to>$userBusinessProcess1CreateTaskSingleActivityResponse1Msg.root/b4p:taskMetaData/b4p:userProcessEndpoint</bpel:to>
+                                              <bpel:to>$notifyTaskCompletionSingleActivtyRequest.root/b4p:taskMetaData/b4p:userProcessEndpoint</bpel:to>
                                             </bpel:copy>
                                             <bpel:copy>
                                               <bpel:from>$createTaskRequest.root/b4p:taskMetaData/b4p:userProcessNamespaceURI</bpel:from>
-                                              <bpel:to>$userBusinessProcess1CreateTaskSingleActivityResponse1Msg.root/b4p:taskMetaData/b4p:userProcessNamespaceURI</bpel:to>
+                                              <bpel:to>$notifyTaskCompletionSingleActivtyRequest.root/b4p:taskMetaData/b4p:userProcessNamespaceURI</bpel:to>
                                             </bpel:copy>
                                             <bpel:copy>
                                               <bpel:from>$createTaskRequest.root/b4p:taskMetaData/b4p:userProcessCompleteSOAPAction</bpel:from>
-                                              <bpel:to>$userBusinessProcess1CreateTaskSingleActivityResponse1Msg.root/b4p:taskMetaData/b4p:userProcessCompleteSOAPAction</bpel:to>
+                                              <bpel:to>$notifyTaskCompletionSingleActivtyRequest.root/b4p:taskMetaData/b4p:userProcessCompleteSOAPAction</bpel:to>
                                             </bpel:copy>
                                             <bpel:copy>
                                               <bpel:from>$createTaskRequest.root/b4p:taskMetaData/b4p:session</bpel:from>
-                                              <bpel:to>$userBusinessProcess1CreateTaskSingleActivityResponse1Msg.root/b4p:taskMetaData/b4p:session</bpel:to>
+                                              <bpel:to>$notifyTaskCompletionSingleActivtyRequest.root/b4p:taskMetaData/b4p:session</bpel:to>
                                             </bpel:copy>
                                             <bpel:copy>
                                               <bpel:from>"OK"</bpel:from>
-                                              <bpel:to>$userBusinessProcess1CreateTaskSingleActivityResponse1Msg.root/b4p:status</bpel:to>
+                                              <bpel:to>$notifyTaskCompletionSingleActivtyRequest.root/b4p:status</bpel:to>
                                             </bpel:copy>
                                             <bpel:copy>
                                               <bpel:from>$completeTaskRequest.root/b4p:participantToken</bpel:from>
-                                              <bpel:to>$userBusinessProcess1CreateTaskSingleActivityResponse1Msg.root/b4p:participantToken</bpel:to>
+                                              <bpel:to>$notifyTaskCompletionSingleActivtyRequest.root/b4p:participantToken</bpel:to>
                                             </bpel:copy>
                                             <bpel:copy>
                                               <bpel:from>$completeTaskRequest.root/b4p:taskOutput</bpel:from>
-                                              <bpel:to>$userBusinessProcess1CreateTaskSingleActivityResponse1Msg.root/b4p:taskOutput</bpel:to>
+                                              <bpel:to>$notifyTaskCompletionSingleActivtyRequest.root/b4p:taskOutput</bpel:to>
                                             </bpel:copy>
                                             <bpel:copy>
                                               <bpel:from>$completeTaskRequest.root/b4p:user</bpel:from>
-                                              <bpel:to>$userBusinessProcess1CreateTaskSingleActivityResponse1Msg.root/b4p:user</bpel:to>
+                                              <bpel:to>$notifyTaskCompletionSingleActivtyRequest.root/b4p:user</bpel:to>
                                             </bpel:copy>
                                             <bpel:copy>
                                               <bpel:from>$CreateTaskSingleActivityResponse.root/b4p:taskMetaData/b4p:taskId</bpel:from>
-                                              <bpel:to>$userBusinessProcess1CreateTaskSingleActivityResponse1Msg.root/b4p:taskMetaData/b4p:taskId</bpel:to>
+                                              <bpel:to>$notifyTaskCompletionSingleActivtyRequest.root/b4p:taskMetaData/b4p:taskId</bpel:to>
                                             </bpel:copy>
                                             <bpel:copy>
                                               <bpel:from>$GetAttachmentsResponse.getAttachmentsResponse</bpel:from>
-                                              <bpel:to>$userBusinessProcess1CreateTaskSingleActivityResponse1Msg.root/b4p:taskMetaData/b4p:attachments</bpel:to>
+                                              <bpel:to>$notifyTaskCompletionSingleActivtyRequest.root/b4p:taskMetaData/b4p:attachments</bpel:to>
                                             </bpel:copy>
                                             <bpel:copy>
                                               <bpel:from>$GetAttachmentsResponse.getAttachmentsResponse</bpel:from>
-                                              <bpel:to>$userBusinessProcess1CreateTaskSingleActivityResponse1Msg.root/b4p:taskMetaData/b4p:globalAttachments</bpel:to>
+                                              <bpel:to>$notifyTaskCompletionSingleActivtyRequest.root/b4p:taskMetaData/b4p:globalAttachments</bpel:to>
                                             </bpel:copy>
                                           </bpel:assign>
-                                          <bpel:invoke partnerLink="tMPAndUBPPlkVar" portType="UserBusinessProcess1:userProcessPortType" operation="notifyTaskCompletionSingleActivity" inputVariable="userBusinessProcess1CreateTaskSingleActivityResponse1Msg" bpmn:label="notify Task&#13;&#10;Completion Single&#13;&#10;Activity&#13;&#10;" name="notify_Task__Completion_Single__Activity-1" bpmn:id="_Snpj8PY2EeW2GY9-FhCCxw"></bpel:invoke>
+                                          <bpel:invoke partnerLink="tMPAndUBPPlkVar" portType="UserBusinessProcess1:userProcessPortType" operation="notifyTaskCompletionSingleActivity" inputVariable="notifyTaskCompletionSingleActivtyRequest" bpmn:label="notify Task&#13;&#10;Completion Single&#13;&#10;Activity" name="notify_Task__Completion_Single__Activity-1" bpmn:id="_Snpj8PY2EeW2GY9-FhCCxw"></bpel:invoke>
                                           <bpel:assign bpmn:label="Prepare response&#13;&#10;to UIFW(Single&#13;&#10;Activity)" name="Prepare_response__to_UIFW_Single__Activity_" bpmn:id="_a9ueEPY2EeW2GY9-FhCCxw">
                                             <bpel:copy>
                                               <bpel:from>"OK"</bpel:from>
@@ -3235,7 +3494,7 @@
                                       <bpel:to>$taskCompleted</bpel:to>
                                     </bpel:copy>
                                   </bpel:assign>
-                                  <bpel:empty bpmn:label="Exclusive_Data-Based_Gateway" name="Exclusive_Data-Based_Gateway-18" bpmn:id="_JL6L8MPoEd6KT51CNOEWqw">
+                                  <bpel:empty bpmn:label="Exclusive_Data-Based_Gateway" name="Exclusive_Data-Based_Gateway-19" bpmn:id="_JL6L8MPoEd6KT51CNOEWqw">
                                     <bpel:links>
                                       <bpel:targets></bpel:targets>
                                     </bpel:links>

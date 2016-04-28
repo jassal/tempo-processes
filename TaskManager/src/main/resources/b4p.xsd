@@ -142,6 +142,9 @@
 
 	<xsd:complexType name="taskMetaDataType">
 		<xsd:sequence>
+            <xsd:element name="activityInfo" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="taskRequestVarUBP" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="taskResponseVarUBP" type="xsd:string" minOccurs="0"/>
 			<xsd:element name="taskId" type="xsd:string" minOccurs="0" />
 			<xsd:element name="taskState" type="xsd:token" minOccurs="0" />
 			<xsd:element name="taskType" type="xsd:token" minOccurs="0" />
