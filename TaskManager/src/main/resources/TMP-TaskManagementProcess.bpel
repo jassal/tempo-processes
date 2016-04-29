@@ -45,6 +45,8 @@
     <bpel:variable name="AddAdhocTaskResponseVarToUBPResponse" messageType="AdhocTaskManagement1:addAdhocTaskVariableToUBPOutput"/>
     <bpel:variable name="SendAdhocTaskEventToUBPRequest" messageType="AdhocTaskManagement1:sendAdhocTaskEventToUBPInput"/>
     <bpel:variable name="SendAdhocTaskEventToUBPResponse" messageType="AdhocTaskManagement1:sendAdhocTaskEventToUBPOutput"/>
+	<bpel:variable name="LinkAdhocTaskWithUBPRequest" messageType="AdhocTaskManagement1:linkPATaskWithUBPInfoInput"/>
+	<bpel:variable name="LinkAdhocTaskWithUBPResponse" messageType="AdhocTaskManagement1:linkPATaskWithUBPInfoOutput"/>
   </bpel:variables>
   <bpel:sequence>
     <bpel:pick createInstance="yes" bpmn:label="Exclusive_Event-Based_Gateway" name="Exclusive_Event-Based_Gateway" bpmn:id="_x9SrsOXQEeWG7YrGV-y1wQ">
@@ -413,6 +415,20 @@
 </AdhocTaskManagement1:sendAdhocTaskEventToUBP></bpel:literal>
               </bpel:from>
               <bpel:to>$SendAdhocTaskEventToUBPRequest.parameters</bpel:to>
+            </bpel:copy>
+			<bpel:copy bpmn:label="$LinkAdhocTaskWithUBPRequest">
+              <bpel:from>
+                <bpel:literal>
+<AdhocTaskManagement1:linkPATaskWithUBPInfo>
+  <taskId></taskId>
+  <ubpInstanceId></ubpInstanceId>
+  <tmpInstanceId></tmpInstanceId>
+  <activityInfo></activityInfo>
+  <taskRequestVar></taskRequestVar>
+  <taskResponseVar></taskResponseVar>
+</AdhocTaskManagement1:linkPATaskWithUBPInfo></bpel:literal>
+              </bpel:from>
+              <bpel:to>$LinkAdhocTaskWithUBPRequest.parameters</bpel:to>
             </bpel:copy>
           </bpel:assign>
           <bpel:assign bpmn:label="Create Task" name="Create_Task-1" bpmn:id="_kh8I0KdyEdyId4P63ChZuw">
@@ -874,6 +890,33 @@
           </bpel:copy>
         </bpel:assign>
         <bpel:invoke partnerLink="taskManagementProcessAndAdhocTaskManagementForAdhocTaskManagementPortPlkVar" portType="AdhocTaskManagement1:AdhocTaskManagementPortType" operation="getUBPInfoForPATask" inputVariable="GetTaskInfoRequest" outputVariable="GetTaskInfoResponse" bpmn:label="get task info" name="get_task_info-1" bpmn:id="_WDrhwAw2EeaJXvIkfqvwtw"></bpel:invoke>
+		<bpel:assign bpmn:label="link adhoc task with UBP" name="link_adhoc_task_with_UBP" bpmn:id="_7YQPwA3cEea8bomSq_kTqg">
+          <bpel:copy>
+            <bpel:from>$taskId</bpel:from>
+            <bpel:to>$LinkAdhocTaskWithUBPRequest.parameters/taskId</bpel:to>
+          </bpel:copy>
+          <bpel:copy>
+            <bpel:from>$createTaskRequest.root/b4p:taskMetaData/b4p:instanceId</bpel:from>
+            <bpel:to>$LinkAdhocTaskWithUBPRequest.parameters/ubpInstanceId</bpel:to>
+          </bpel:copy>
+          <bpel:copy>
+            <bpel:from>$ode:pid</bpel:from>
+            <bpel:to>$LinkAdhocTaskWithUBPRequest.parameters/tmpInstanceId</bpel:to>
+          </bpel:copy>
+          <bpel:copy>
+            <bpel:from>$GetTaskInfoResponse.parameters/taskUBPLinked-info/pmapi:activityInfo</bpel:from>
+            <bpel:to>$LinkAdhocTaskWithUBPRequest.parameters/activityInfo</bpel:to>
+          </bpel:copy>
+          <bpel:copy>
+            <bpel:from>$GetTaskInfoResponse.parameters/taskUBPLinked-info/pmapi:taskRequestVarName</bpel:from>
+            <bpel:to>$LinkAdhocTaskWithUBPRequest.parameters/taskRequestVar</bpel:to>
+          </bpel:copy>
+          <bpel:copy>
+            <bpel:from>$GetTaskInfoResponse.parameters/taskUBPLinked-info/pmapi:taskResponseVarName</bpel:from>
+            <bpel:to>$LinkAdhocTaskWithUBPRequest.parameters/taskResponseVar</bpel:to>
+          </bpel:copy>
+        </bpel:assign>
+        <bpel:invoke partnerLink="taskManagementProcessAndAdhocTaskManagementForAdhocTaskManagementPortPlkVar" portType="AdhocTaskManagement1:AdhocTaskManagementPortType" operation="linkPATaskWithUBPInfo" inputVariable="LinkAdhocTaskWithUBPRequest" outputVariable="LinkAdhocTaskWithUBPResponse" bpmn:label="link adhoc task with UBP" name="link_adhoc_task_with_UBP-1" bpmn:id="_7YQPwA3cEea8bomSq_kTqg"></bpel:invoke>
         <bpel:flow bpmn:label="Parallel_Gateway" name="Parallel_Gateway" bpmn:id="_siawcAFFEeaucMvW1WrsLw">
           <bpel:sequence>
             <bpel:assign bpmn:label="add createTask request Adhoc Task Variable To UBP" name="add_createTask_request_Adhoc_Task_Variable_To_UBP" bpmn:id="_uYI78AFFEeaucMvW1WrsLw">
