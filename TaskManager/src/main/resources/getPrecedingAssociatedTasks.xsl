@@ -6,16 +6,52 @@
 
 	<xsl:output method="xml" omit-xml-declaration="yes" />
 
+	<xsl:param name="placement" />
+
 	<xsl:template match="ns0:getAssociatedTasksResponse">
 		<b4p:tasks>
-			<xsl:for-each select="ns0:task">
-				<xsl:if test="(ns0:taskState='READY') and (ns0:adhocPlacement='PRECEDING')">
-					<b4p:task>
-						<xsl:value-of select="ns0:taskId" />
-					</b4p:task>
-				</xsl:if>
-			</xsl:for-each>
+			<xsl:choose>
+				<xsl:when test="$placement = 'PRECEDING'">
+					<xsl:for-each select="ns0:task">
+						<xsl:if test="((ns0:taskState='READY') and (ns0:adhocPlacement='PRECEDING') and (ns0:adhocRelation='CURRENT'))">
+							<b4p:task>
+								<xsl:value-of select="ns0:taskId" />
+							</b4p:task>
+						</xsl:if>
+					</xsl:for-each>
+				</xsl:when>
+				<xsl:when test="$placement = 'PARALLEL'">
+					<xsl:for-each select="ns0:task">
+						<xsl:if test="((ns0:taskState='READY') and (ns0:adhocPlacement='PRECEDING') and (ns0:adhocRelation='CURRENT'))
+						           or ((ns0:taskState='READY') and (ns0:adhocPlacement='PRECEDING') and (ns0:adhocRelation='PARENT'))">
+							<b4p:task>
+								<xsl:value-of select="ns0:taskId" />
+							</b4p:task>
+						</xsl:if>
+					</xsl:for-each>
+				</xsl:when>
+				<xsl:when test="$placement = 'SUCCEEDING'">
+					<xsl:for-each select="ns0:task">
+						<xsl:if test="((ns0:taskState='READY') and (ns0:adhocPlacement='PRECEDING') and (ns0:adhocRelation='CURRENT'))
+				                   or ((ns0:taskState='READY') and (ns0:adhocPlacement='PRECEDING') and (ns0:adhocRelation='PARENT'))
+								   or ((ns0:taskState='READY') and (ns0:adhocPlacement='PARALLEL') and (ns0:adhocRelation='PARENT'))
+								   or ((ns0:taskState='READY') and (ns0:isAdhocTask='false') and (ns0:adhocRelation='CURRENT'))">
+							<b4p:task>
+								<xsl:value-of select="ns0:taskId" />
+							</b4p:task>
+						</xsl:if>
+					</xsl:for-each>
+				</xsl:when>
+				<xsl:otherwise>
+					<xsl:for-each select="ns0:task">
+						<xsl:if test="((ns0:taskState='READY') and (ns0:adhocPlacement='PRECEDING') and (ns0:adhocRelation='CURRENT'))">
+							<b4p:task>
+								<xsl:value-of select="ns0:taskId" />
+							</b4p:task>
+						</xsl:if>
+					</xsl:for-each>
+				</xsl:otherwise>
+			</xsl:choose>
 		</b4p:tasks>
 	</xsl:template>
 </xsl:stylesheet>
-
