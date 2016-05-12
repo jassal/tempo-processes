@@ -9,7 +9,8 @@
 	<xsl:template match="ns0:getAssociatedTasksResponse">
 		<b4p:tasks>
 			<xsl:for-each select="ns0:task">
-				<xsl:if test="(ns0:taskState='READY') and (ns0:adhocPlacement='PARALLEL')">
+				<xsl:if test="(ns0:taskState='READY') and (ns0:adhocPlacement='PARALLEL')
+				           or (ns0:taskState='READY') and (ns0:adhocPlacement='SUCCEEDING')">
 					<b4p:task>
 						<xsl:value-of select="ns0:taskId" />
 					</b4p:task>
