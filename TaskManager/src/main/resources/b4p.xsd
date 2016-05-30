@@ -144,6 +144,7 @@
 		<xsd:sequence>
             <xsd:element name="activityInfo" type="xsd:string" minOccurs="0"/>
             <xsd:element name="allowadhoc" type="xsd:boolean" minOccurs="0"/>
+            <xsd:element name="teamAssignmentStrategy" type="xsd:string" minOccurs="0"/>
             <xsd:element name="taskRequestVarUBP" type="xsd:string" minOccurs="0"/>
             <xsd:element name="taskResponseVarUBP" type="xsd:string" minOccurs="0"/>
 			<xsd:element name="taskId" type="xsd:string" minOccurs="0" />

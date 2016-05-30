@@ -340,6 +340,7 @@
                <xsd:element name="taskId" type="xsd:string"/>
                <xsd:element minOccurs="0" name="taskState" type="xsd:token"/>
                <xsd:element name="taskType" type="xsd:token"/>
+               <xsd:element name="teamAssignmentStrategy" type="xsd:string" minOccurs="0"/>
                <xsd:element minOccurs="0" name="description" type="xsd:string"/>
                <xsd:element minOccurs="0" name="processId" type="xsd:string"/>
                <xsd:element minOccurs="0" name="instanceId" type="xsd:string"/>

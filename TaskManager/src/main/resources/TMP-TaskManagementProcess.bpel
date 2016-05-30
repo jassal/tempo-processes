@@ -61,6 +61,7 @@
             <tns:taskId></tns:taskId>
             <tns:taskState></tns:taskState>
             <tns:taskType></tns:taskType>
+			<tns:teamAssignmentStrategy></tns:teamAssignmentStrategy>
             <tns:description></tns:description>
             <tns:processId></tns:processId>
             <tns:instanceId></tns:instanceId>
@@ -245,6 +246,7 @@
   <b4p:taskMetaData>
     <b4p:activityInfo></b4p:activityInfo>
     <b4p:allowadhoc></b4p:allowadhoc>
+	<b4p:teamAssignmentStrategy></b4p:teamAssignmentStrategy>
     <b4p:taskRequestVarUBP></b4p:taskRequestVarUBP>
     <b4p:taskResponseVarUBP></b4p:taskResponseVarUBP>
     <b4p:taskId></b4p:taskId>
@@ -468,6 +470,7 @@
             <tns:taskId></tns:taskId>
             <tns:taskState></tns:taskState>
             <tns:taskType></tns:taskType>
+			<tns:teamAssignmentStrategy></tns:teamAssignmentStrategy>
             <tns:description></tns:description>
             <tns:processId></tns:processId>
             <tns:instanceId></tns:instanceId>
@@ -652,6 +655,7 @@
   <b4p:taskMetaData>
     <b4p:activityInfo></b4p:activityInfo>
     <b4p:allowadhoc></b4p:allowadhoc>
+    <tns:teamAssignmentStrategy></tns:teamAssignmentStrategy>
     <b4p:taskRequestVarUBP></b4p:taskRequestVarUBP>
     <b4p:taskResponseVarUBP></b4p:taskResponseVarUBP>
     <b4p:taskId></b4p:taskId>
@@ -1076,6 +1080,10 @@
         <bpel:from>$createTaskRequest.root/b4p:taskMetaData/b4p:allowadhoc</bpel:from>
         <bpel:to>$createTMSTaskRequest.createRequest/tns:task/tns:metadata/tns:allowAdhocTask</bpel:to>
       </bpel:copy>
+      <bpel:copy ignoreUninitializedFromVariable="yes" ignoreMissingFromData="yes">
+        <bpel:from>$createTaskRequest.root/b4p:taskMetaData/b4p:teamAssignmentStrategy</bpel:from>
+        <bpel:to>$createTMSTaskRequest.createRequest/tns:task/tns:metadata/tns:teamAssignmentStrategy</bpel:to>
+      </bpel:copy>
     </bpel:assign>
     <bpel:if>
       <bpel:condition>boolean(normalize-space($createTaskRequest.root/b4p:taskMetaData/b4p:scheduledActions/b4p:expiration/b4p:until))</bpel:condition>
@@ -1264,6 +1272,7 @@
   <b4p:taskMetaData>
     <b4p:activityInfo></b4p:activityInfo>
     <b4p:allowadhoc></b4p:allowadhoc>
+	<b4p:teamAssignmentStrategy></b4p:teamAssignmentStrategy>
     <b4p:taskRequestVarUBP></b4p:taskRequestVarUBP>
     <b4p:taskResponseVarUBP></b4p:taskResponseVarUBP>
     <b4p:taskId></b4p:taskId>
@@ -1381,6 +1390,7 @@
   <b4p:taskMetaData>
     <b4p:activityInfo></b4p:activityInfo>
     <b4p:allowadhoc></b4p:allowadhoc>
+	<b4p:teamAssignmentStrategy></b4p:teamAssignmentStrategy>
     <b4p:taskRequestVarUBP></b4p:taskRequestVarUBP>
     <b4p:taskResponseVarUBP></b4p:taskResponseVarUBP>
     <b4p:taskId></b4p:taskId>
@@ -1732,6 +1742,7 @@
   <b4p:taskMetaData>
     <b4p:activityInfo></b4p:activityInfo>
     <b4p:allowadhoc></b4p:allowadhoc>
+	<b4p:teamAssignmentStrategy></b4p:teamAssignmentStrategy>
     <b4p:taskRequestVarUBP></b4p:taskRequestVarUBP>
     <b4p:taskResponseVarUBP></b4p:taskResponseVarUBP>
     <b4p:taskId></b4p:taskId>
@@ -1847,6 +1858,7 @@
   <b4p:taskMetaData>
     <b4p:activityInfo></b4p:activityInfo>
     <b4p:allowadhoc></b4p:allowadhoc>
+	<b4p:teamAssignmentStrategy></b4p:teamAssignmentStrategy>
     <b4p:taskRequestVarUBP></b4p:taskRequestVarUBP>
     <b4p:taskResponseVarUBP></b4p:taskResponseVarUBP>
     <b4p:taskId></b4p:taskId>
@@ -2371,6 +2383,7 @@
   <b4p:taskMetaData>
     <b4p:activityInfo></b4p:activityInfo>
     <b4p:allowadhoc></b4p:allowadhoc>
+	<b4p:teamAssignmentStrategy></b4p:teamAssignmentStrategy>
     <b4p:taskRequestVarUBP></b4p:taskRequestVarUBP>
     <b4p:taskResponseVarUBP></b4p:taskResponseVarUBP>
     <b4p:taskId></b4p:taskId>
@@ -2497,6 +2510,7 @@
   <b4p:taskMetaData>
     <b4p:activityInfo></b4p:activityInfo>
     <b4p:allowadhoc></b4p:allowadhoc>
+	<b4p:teamAssignmentStrategy></b4p:teamAssignmentStrategy>
     <b4p:taskRequestVarUBP></b4p:taskRequestVarUBP>
     <b4p:taskResponseVarUBP></b4p:taskResponseVarUBP>
     <b4p:taskId></b4p:taskId>
@@ -2613,6 +2627,7 @@
   <b4p:taskMetaData>
     <b4p:activityInfo></b4p:activityInfo>
     <b4p:allowadhoc></b4p:allowadhoc>
+	<b4p:teamAssignmentStrategy></b4p:teamAssignmentStrategy>
     <b4p:taskRequestVarUBP></b4p:taskRequestVarUBP>
     <b4p:taskResponseVarUBP></b4p:taskResponseVarUBP>
     <b4p:taskId></b4p:taskId>
@@ -2728,6 +2743,7 @@
   <b4p:taskMetaData>
     <b4p:activityInfo></b4p:activityInfo>
     <b4p:allowadhoc></b4p:allowadhoc>
+	<b4p:teamAssignmentStrategy></b4p:teamAssignmentStrategy>
     <b4p:taskRequestVarUBP></b4p:taskRequestVarUBP>
     <b4p:taskResponseVarUBP></b4p:taskResponseVarUBP>
     <b4p:taskId></b4p:taskId>
