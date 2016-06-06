@@ -12,8 +12,8 @@ define "tempo-processes" do
   project.version = VERSION_NUMBER
   project.group = "org.intalio.tempo"
 
-  compile.options.source = "1.5"
-  compile.options.target = "1.5"
+  compile.options.source = "1.8"
+  compile.options.target = "1.8"
 
   define "xpath-extensions" do
     package :jar
