@@ -1096,7 +1096,7 @@ jsx3.lang.Package.definePackage(
         	}
 
 	    // display the image block
-	    Intalio.Internal.Attachments.displayAttachmentsImageBlock(true);
+	    //Intalio.Internal.Attachments.displayAttachmentsImageBlock(true);
 	}
 	else if (taskType == "Notification") {
 	
