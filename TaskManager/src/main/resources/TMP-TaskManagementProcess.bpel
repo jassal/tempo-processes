@@ -1101,8 +1101,8 @@
               <bpel:variable name="notifyTaskDeadlineReachedSingleActivtyRequest" messageType="UserBusinessProcess1:createTaskSingleActivityResponse"/>
               <bpel:variable name="notifyTaskDeadlineReachedResponse" messageType="UserBusinessProcess1:notifyTaskCompletionResponse"/>
               <bpel:variable name="notifyTaskDeadlineReachedRequest" messageType="UserBusinessProcess1:notifyTaskCompletionRequest"/>
-              <bpel:variable name="tnsFailRequest1Msg" messageType="tns:failRequest"/>
-              <bpel:variable name="tnsFailResponse2Msg" messageType="tns:okResponse"/>
+              <bpel:variable name="FailTaskRequest" messageType="tns:failRequest"/>
+              <bpel:variable name="FailTaskResponse" messageType="tns:okResponse"/>
             </bpel:variables>
             <bpel:sequence>
               <bpel:assign name="init-variables-SubProcess" bpmn:id="_3Ct-YLEgEdy6MtvbqSLrQw">
@@ -1318,7 +1318,7 @@
                   </bpel:from>
                   <bpel:to>$notifyTaskDeadlineReachedRequest.root</bpel:to>
                 </bpel:copy>
-                <bpel:copy bpmn:label="$tnsFailRequest1Msg">
+                <bpel:copy bpmn:label="$FailTaskRequest">
                   <bpel:from>
                     <bpel:literal>
 <tns:failRequest>
@@ -1328,7 +1328,7 @@
   <tns:participantToken></tns:participantToken>
 </tns:failRequest></bpel:literal>
                   </bpel:from>
-                  <bpel:to>$tnsFailRequest1Msg.failRequest</bpel:to>
+                  <bpel:to>$FailTaskRequest.failRequest</bpel:to>
                 </bpel:copy>
               </bpel:assign>
               <bpel:if>
@@ -1383,7 +1383,13 @@
                   <bpel:targets></bpel:targets>
                 </bpel:links>
               </bpel:empty>
-              <bpel:invoke partnerLink="taskManagementProcessAndTaskManagementSystemForPortTaskManagementServicesSOAPPlkVar" portType="tns:TaskManagementServicesPortType" operation="fail" inputVariable="tnsFailRequest1Msg" outputVariable="tnsFailResponse2Msg" bpmn:label="Change Task status to Failed" name="Change_Task_status_to_Failed" bpmn:id="_FyrywLEhEdy6MtvbqSLrQw"></bpel:invoke>
+              <bpel:assign bpmn:label="Change Task status to Failed" name="Change_Task_status_to_Failed" bpmn:id="_FyrywLEhEdy6MtvbqSLrQw">
+                <bpel:copy>
+                  <bpel:from>$taskId</bpel:from>
+                  <bpel:to>$FailTaskRequest.failRequest/tns:taskId</bpel:to>
+                </bpel:copy>
+              </bpel:assign>
+              <bpel:invoke partnerLink="taskManagementProcessAndTaskManagementSystemForPortTaskManagementServicesSOAPPlkVar" portType="tns:TaskManagementServicesPortType" operation="fail" inputVariable="FailTaskRequest" outputVariable="FailTaskResponse" bpmn:label="Change Task status to Failed" name="Change_Task_status_to_Failed" bpmn:id="_FyrywLEhEdy6MtvbqSLrQw"></bpel:invoke>
             </bpel:sequence>
           </bpel:scope>
         </bpel:catch>
