@@ -46,14 +46,14 @@
 		messageType="b4p:escalateTaskRequest" part="root">
 		<bpws:query>//b4p:taskId</bpws:query>
 	</bpws:propertyAlias>
-	<bpws:propertyAlias propertyName="b4p:taskId"
+	<!-- <bpws:propertyAlias propertyName="b4p:taskId"
 		messageType="b4p:claimTaskRequest" part="root">
 		<bpws:query>//b4p:taskId</bpws:query>
 	</bpws:propertyAlias>
 	<bpws:propertyAlias propertyName="b4p:taskId"
 		messageType="b4p:revokeTaskRequest" part="root">
 		<bpws:query>//b4p:taskId</bpws:query>
-	</bpws:propertyAlias>
+	</bpws:propertyAlias> -->
 	<bpws:propertyAlias propertyName="b4p:taskId"
 		messageType="b4p:completeTaskRequest" part="root">
 		<bpws:query>//b4p:taskMetaData/b4p:taskId</bpws:query>
@@ -106,7 +106,7 @@
 	<wsdl:message name="escalateTaskResponse">
 		<wsdl:part name="root" element="b4p:escalateTaskResponse" />
 	</wsdl:message>
-	<wsdl:message name="claimTaskRequest">
+	<!-- <wsdl:message name="claimTaskRequest">
 		<wsdl:part name="root" element="b4p:claimTaskRequest" />
 	</wsdl:message>
 	<wsdl:message name="claimTaskResponse">
@@ -117,7 +117,7 @@
 	</wsdl:message>
 	<wsdl:message name="revokeTaskResponse">
 		<wsdl:part name="root" element="b4p:revokeTaskResponse" />
-	</wsdl:message>
+	</wsdl:message> -->
 	<wsdl:message name="completeTaskRequest">
 		<wsdl:part name="root" element="b4p:completeTaskRequest" />
 	</wsdl:message>
@@ -174,14 +174,14 @@
 			<wsdl:input message="b4p:skipTaskRequest" name="skipTaskRequest" />
 			<wsdl:output message="b4p:skipTaskResponse" name="skipTaskResponse" />
 		</wsdl:operation>
-		<wsdl:operation name="claimTask">
+		<!-- <wsdl:operation name="claimTask">
 			<wsdl:input message="b4p:claimTaskRequest" name="claimTaskRequest" />
 			<wsdl:output message="b4p:claimTaskResponse" name="claimTaskResponse" />
 		</wsdl:operation>
 		<wsdl:operation name="revokeTask">
 			<wsdl:input message="b4p:revokeTaskRequest" name="revokeTaskRequest" />
 			<wsdl:output message="b4p:revokeTaskResponse" name="revokeTaskResponse" />
-		</wsdl:operation>
+		</wsdl:operation> -->
 	</wsdl:portType>
 	<wsdl:portType name="TMPPortType">
 		<wsdl:operation name="nextTaskReady">
@@ -247,7 +247,7 @@
 				<soap:body use="literal" />
 			</wsdl:output>
 		</wsdl:operation>
-		<wsdl:operation name="claimTask">
+		<!-- <wsdl:operation name="claimTask">
 			<soap:operation soapAction="claimTask" style="document" />
 			<wsdl:input>
 				<soap:body use="literal" />
@@ -264,8 +264,8 @@
 			<wsdl:output>
 				<soap:body use="literal" />
 			</wsdl:output>
-		</wsdl:operation>
-				<wsdl:operation name="skipTask">
+		</wsdl:operation> -->
+		<wsdl:operation name="skipTask">
 			<soap:operation soapAction="skipTask" style="document" />
 			<wsdl:input>
 				<soap:body use="literal" />
