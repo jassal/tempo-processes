@@ -11,12 +11,12 @@
     <vprop:propertyAlias propertyName="this:taskId" messageType="b4p:completeTaskRequest" part="root">
         <vprop:query>b4p:taskMetaData/b4p:taskId/text()</vprop:query>
     </vprop:propertyAlias>
-    <vprop:propertyAlias propertyName="this:taskId" messageType="b4p:revokeTaskRequest" part="root">
+    <!-- <vprop:propertyAlias propertyName="this:taskId" messageType="b4p:revokeTaskRequest" part="root">
         <vprop:query>b4p:taskId/text()</vprop:query>
     </vprop:propertyAlias>
     <vprop:propertyAlias propertyName="this:taskId" messageType="b4p:claimTaskRequest" part="root">
         <vprop:query>b4p:taskId/text()</vprop:query>
-    </vprop:propertyAlias>
+    </vprop:propertyAlias> -->
     <vprop:propertyAlias propertyName="this:taskId" messageType="b4p:skipTaskRequest" part="root">
         <vprop:query>b4p:taskId/text()</vprop:query>
     </vprop:propertyAlias>
